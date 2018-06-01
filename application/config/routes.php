@@ -72,3 +72,8 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
  // Admin
  // Beranda
  $route['Admin/Beranda'] = 'AdminCTRL/beranda';
+
+ // Payment
+ $route['Admin/Payment'] = 'PaymentCTRL/getData';
+ $route['Admin/savePayment'] = 'PaymentCTRL/saveData';
+ $route['Admin/statusPayment/:any/:any'] = 'PaymentCTRL/updateStatus';
