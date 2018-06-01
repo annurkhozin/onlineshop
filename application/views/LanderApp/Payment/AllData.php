@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="col-sm-7">
 <div class="panel">
 	<div class="panel-body">
-		<div class="table-primary">
+		<div class="table-Light">
 			<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="jq-datatables-example">
 				<thead>
 					<tr>
