@@ -25,7 +25,7 @@ $menu0=$this->M__db->cek_order('menus__',$select,$where,'posisi_menu','asc');
 			</div>
 			<ul class="navigation">
 				<?php foreach($menu0->result() as $mn0){ 
-						$select1 = array('nama_menu','icon_menu','link_menu','sub_menu');
+						$select1 = array('nama_menu','icon_menu','link_menu','sub_menu','page');
 						$where1 = array(
 							'sub_menu' => $mn0->id_menu,
 							'is_active' => 1
@@ -36,7 +36,7 @@ $menu0=$this->M__db->cek_order('menus__',$select,$where,'posisi_menu','asc');
 								<a href="#" class="faa-parent animated-hover"><i class="<?=$mn0->icon_menu?>"></i><span class="mm-text"><?=$mn0->nama_menu?></span></a>
 								<ul>
 								<?php foreach($menu1->result() as $mn1){ ?>
-									<li>
+									<li <?if($currentPage==$mn1->page){ echo 'class="active"';}?>>
 										<a tabindex="-1" href="<?=base_url().$mn1->link_menu?>"><i class="<?=$mn1->icon_menu?>"></i><span class="mm-text"><?=$mn1->nama_menu?></span></a>
 									</li>
 								<?php }?>

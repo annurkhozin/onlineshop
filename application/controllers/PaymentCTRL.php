@@ -6,6 +6,7 @@ class PaymentCTRL extends NK {
 	public function getData() {
 		$data	= $this->public_data;
 		$data['title']='Data Pembayaran';
+		$data['currentPage']='payment';
 		$data['allData']=$this->M__db->get_all_order('payment__','payment_id','Desc');
 		$data['content']='Payment/AllData.php';
 		$this->load->view('LanderApp/Template', $data);
