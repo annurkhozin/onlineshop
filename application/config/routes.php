@@ -49,6 +49,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'HomeCTRL';
+$route['default_controller'] = 'AuthCTRL/login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+// Translate Enkipsi
+$route['Translate'] = 'TranslateCTRL';
+
+
+// Auth
+$route['Login'] = 'AuthCTRL/login';
+$route['cekLogin'] = 'AuthCTRL/prosesLogin';
+$route['Destroy'] = 'AuthCTRL/deleteSession';
+
+
+// Member
+
+
+
+
+
+
+ // Admin
+ // Beranda
+ $route['Admin/Beranda'] = 'AdminCTRL/beranda';

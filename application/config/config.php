@@ -115,7 +115,7 @@ $config['enable_hooks'] = FALSE;
 | https://codeigniter.com/user_guide/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'MY_';
+$config['subclass_prefix'] = 'NK_';
 
 /*
 |--------------------------------------------------------------------------
@@ -325,7 +325,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '8J5F8D2Rd8dhF43dJk975fDa10MvC3zALoPTvXnFs';
+$config['encryption_key'] = '8J5F8D2Rq1dhF43dJk97fDa150MvC3zALoPTvXnFs';
 
 /*
 |--------------------------------------------------------------------------
