@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$select = array('nama_menu','icon_menu','link_menu','sub_menu','id_menu');
+$select = array('nama_menu','icon_menu','link_menu','sub_menu','id_menu','page');
 $where = array(
 	'sub_menu' => 0,
 	'is_active' => 1
@@ -43,7 +43,7 @@ $menu0=$this->M__db->cek_order('menus__',$select,$where,'posisi_menu','asc');
 								</ul>
 							</li>
 					<?php }else{ ?>
-							<li>
+							<li <?if($currentPage==$mn0->page){ echo 'class="active"';}?>>
 								<a href="<?=base_url().$mn0->link_menu?>" class="faa-parent animated-hover"><i class="<?=$mn0->icon_menu?>"></i><span class="mm-text"><?=$mn0->nama_menu?></span></a>
 							</li>
 					<?php }?>

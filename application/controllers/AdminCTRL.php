@@ -6,6 +6,7 @@ class AdminCTRL extends NK {
 	public function beranda() {
 		$data	= $this->public_data;
 		$data['title']	= 'Beranda';
+		$data['currentPage'] = 'beranda';
 		$data['content']='Beranda/beranda.php';
 		$this->load->view('LanderApp/Template',$data);
 	}
