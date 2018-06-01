@@ -110,7 +110,6 @@ $timezone;
 <!-- LanderApp's javascripts -->
 <script src="<?=path_adm()?>/js/bootstrap.min.js"></script>
 <script src="<?=path_adm()?>/js/landerapp.min.js"></script>
-<script src="<?=path_adm()?>/js/cs-animation.js"></script>
 
 <!-- Google Maps -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script> -->
@@ -126,7 +125,7 @@ $timezone;
 	});
 	$(".cs-multiple").select2({
 		allowClear: true,
-		placeholder: "Pilihan multiple"
+		placeholder: "Select multiple"
 	});
 	window.LanderApp.start(init);
 </script>
