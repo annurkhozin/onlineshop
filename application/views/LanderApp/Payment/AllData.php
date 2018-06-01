@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="panel">
 	<div class="panel-body">
 		<div class="table-Light">
-			<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="jq-datatables-example">
+			<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered datatables" id="datatables">
 				<thead>
 					<tr>
 						<th>No</th>
@@ -118,8 +118,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </script>
 <script>
 	init.push(function () {
-		$('#jq-datatables-example').dataTable();
-		$('#jq-datatables-example_wrapper .table-caption').text('Data Pembayaran');
-		$('#jq-datatables-example_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
+		$('.datatables').dataTable();
+		$('#datatables_wrapper .table-caption').text('Data Pembayaran');
+		$('#datatables_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
 	});
 </script>
