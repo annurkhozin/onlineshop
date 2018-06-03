@@ -23,4 +23,19 @@ class TranslateCTRL extends CI_Controller {
 		$template=paramEncrypt('translate');
 		$this->load->view('LanderApp/'.$template, $data);
 	}
+	public function forgotPassword()	{
+		$this->load->model('EmailConfig'); // load configurations email
+
+        $this->email->from('1741723012kh@gmail.com', 'Tester');
+        $this->email->to('nurkhozin95@gmail.com'); 
+
+        $this->email->subject('Email Test');
+		$this->email->message('Test pesan Email');  
+
+        if (!$this->email->send()) {  
+			show_error($this->email->print_debugger());
+		}else{  
+			echo 'Success to send email';   
+		}  
+	}
 }

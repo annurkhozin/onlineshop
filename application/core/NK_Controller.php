@@ -64,5 +64,5 @@ class Users extends CI_Controller {
 		$this->public_data['info']['deskripsi_app']=$info_web['deskripsi_app'];
         $this->public_data['info']['timezone']=$info_web['timezone_app'];
         date_default_timezone_set($info_web['timezone_app']);
-    }
+	}
 }

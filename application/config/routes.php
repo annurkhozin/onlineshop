@@ -73,6 +73,16 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
  // Beranda
  $route['Admin/Beranda'] = 'AdminCTRL/beranda';
 
+ // Email
+ $route['Admin/Email'] = 'EmailCTRL/getData';
+ $route['Admin/saveEmail'] = 'EmailCTRL/saveData';
+ $route['Admin/testSendEmail'] = 'EmailCTRL/testEmail';
+ $route['Admin/emailTemplate'] = 'EmailCTRL/getTemplate';
+ $route['Admin/saveTemplateEmail'] = 'EmailCTRL/saveTemplate';
+ $route['Admin/statusEmail/:any/:any'] = 'EmailCTRL/updateStatus';
+ $route['Admin/updateEmail/:any'] = 'EmailCTRL/updateData';
+
+
  // Payment
  $route['Admin/Payment'] = 'PaymentCTRL/getData';
  $route['Admin/savePayment'] = 'PaymentCTRL/saveData';

@@ -94,7 +94,7 @@ class PaymentCTRL extends Admins {
 			);
 		
 		$this->M__db->update('payment__',$where,$data);
-		if($this->input->post('is_active')==1){ $ms='aktifkan';}else{ $ms='nonaktifkan';}
+		if($this->uri->segment(4)==1){ $ms='aktifkan';}else{ $ms='nonaktifkan';}
 		if ($this->db->trans_status() === FALSE) {
 			$this->db->trans_rollback();
 			$this->session->set_flashdata('error','Status Pembayaran gagal di'.$ms.'!');	
