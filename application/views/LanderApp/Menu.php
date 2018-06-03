@@ -20,7 +20,7 @@ $menu0=$this->M__db->cek_order('menus__',$select,$where,'posisi_menu','asc');
 				}?>
 				" alt="" class="rounded" width="30%">
 				</div>
-				<a href="<?=base_url()?>Destroy.cs" onclick="return confirm('Anda yakin ingin Keluar!'); " class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i> Log Out</a>
+				<a href="<?=base_url()?>Destroy" onclick="return confirm('Anda yakin ingin Keluar!'); " class="btn btn-xs btn-danger btn-outline dark"><i class="fa fa-power-off"></i> Log Out</a>
 			
 			</div>
 			<ul class="navigation">
@@ -36,14 +36,14 @@ $menu0=$this->M__db->cek_order('menus__',$select,$where,'posisi_menu','asc');
 								<a href="#" class="faa-parent animated-hover"><i class="<?=$mn0->icon_menu?>"></i><span class="mm-text"><?=$mn0->nama_menu?></span></a>
 								<ul>
 								<?php foreach($menu1->result() as $mn1){ ?>
-									<li <?if($currentPage==$mn1->page){ echo 'class="active"';}?>>
+									<li <?php if($currentPage==$mn1->page){ echo 'class="active"';}?>>
 										<a tabindex="-1" href="<?=base_url().$mn1->link_menu?>"><i class="<?=$mn1->icon_menu?>"></i><span class="mm-text"><?=$mn1->nama_menu?></span></a>
 									</li>
 								<?php }?>
 								</ul>
 							</li>
 					<?php }else{ ?>
-							<li <?if($currentPage==$mn0->page){ echo 'class="active"';}?>>
+							<li <?php if($currentPage==$mn0->page){ echo 'class="active"';}?>>
 								<a href="<?=base_url().$mn0->link_menu?>" class="faa-parent animated-hover"><i class="<?=$mn0->icon_menu?>"></i><span class="mm-text"><?=$mn0->nama_menu?></span></a>
 							</li>
 					<?php }?>

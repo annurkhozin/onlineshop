@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container" class="panel">
-	<h1>Welcome to Tranlaste Ciptasoft !</h1>
+	<h1>Welcome !</h1>
 	<div id="body">
 	<form class="form-horizontal" action="<?=base_url()?>Translate" method="post">
 		<div class="form-group">

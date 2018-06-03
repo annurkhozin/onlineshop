@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PaymentCTRL extends NK {
+class PaymentCTRL extends Admins {
 
 	public function getData() {
 		$data	= $this->public_data;

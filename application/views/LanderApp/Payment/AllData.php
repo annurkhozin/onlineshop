@@ -81,9 +81,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td class="text-center">
 							<?php if($row->is_active==1){ ?>
 								<a href="<?=base_url().'Admin/statusPayment/'.$row->payment_id.'/0'?>" class="label label-info">Aktif</a>
-							<? }else{ ?>
+							<?php }else{ ?>
 								<a href="<?=base_url().'Admin/statusPayment/'.$row->payment_id.'/1'?>"class="label label-danger">Nonaktif</a>
-							<? }?>
+							<?php }?>
 						</td>
 						<td class="text-center" style="width: 30%;">
 							<button class="btn btn-default btn-sm btn-outline faa-parent animated-hover"  data-toggle="tooltip" data-placement="top" title="" data-loading-text="Loading..."  data-original-title="Detail <?=$row->payment_name.' - '.$row->payment_account_name?>" onclick="loadEdit(<?=$row->payment_id?>,'detail')"><i class="fa fa-eye faa-vertical"></i></button>
