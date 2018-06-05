@@ -1,4 +1,4 @@
-# apa itu onlineshop?
+# onlineshop
 Toko Online yang berbasis pada Framework PHP CodeIgniter
 
 # Database
