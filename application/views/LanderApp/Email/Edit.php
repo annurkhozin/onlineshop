@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="panel">
 		<div class="panel-heading">
 			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-example" href="#Edit">
-				Edit Data Pembayaran
+				Edit Data Email
 			</a>
 		</div> <!-- / .panel-heading -->
 		<div id="Edit" class="panel-collapse collapse in">

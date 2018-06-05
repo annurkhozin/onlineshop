@@ -87,3 +87,11 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
  $route['Admin/Payment'] = 'PaymentCTRL/getData';
  $route['Admin/savePayment'] = 'PaymentCTRL/saveData';
  $route['Admin/statusPayment/:any/:any'] = 'PaymentCTRL/updateStatus';
+
+//Category
+ $route['Admin/Category'] = 'CategoryCTRL/getData';
+ $route['Admin/statusCategory/:any/:any'] = 'CategoryCTRL/statusCategory';
+ $route['Admin/tambahCategory'] = 'CategoryCTRL/tambahCategory';
+ $route['Admin/saveCategory'] = 'CategoryCTRL/saveCategory';
+ $route['Admin/updateCategory/:any'] = 'CategoryCTRL/updateCategory';
+ $route['Admin/detailCategory/:any'] = 'CategoryCTRL/detailCategory';
