@@ -1,0 +1,46 @@
+/*------------------------------------------------------------------
+
+Project:	Cleaning Services
+Version:	1.1
+Assigned to:	Alex Zaymund
+Primary use:	Cleaning Services
+
+
+[Table of contents]
+
+ - Documentation  page styles
+
+-------------------------------------------------------------------*/
+
+.documentation-row{
+	padding: 50px 0;
+}
+.documentation-row p{
+	line-height: 22px;
+	font-size: 14px;
+	color: #333;
+}
+.documentation-row .alert-success {
+    background-color: #c6f3c3;
+    border-color: #c6f3c3;
+}
+.documentation-row ul{
+	padding-left: 30px;
+}
+.documentation-row ul li{
+	list-style-type: disc;
+	margin: 10px 0;
+}
+.documentation-row .heading-2{
+	margin: 30px 40px;
+}
+.documentation-row .pre{
+	    color: #000;
+    display: block;
+    font-size: 14px;
+    height: auto;
+    line-height: 20px;
+    margin: 10px 0;
+    background-color: #f1f1f1;
+    padding: 10px;
+}

@@ -63,6 +63,7 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
 
 
 // Member
+$route['Beranda'] = 'PublicCTRL/beranda';
 
 
 

@@ -1,0 +1,230 @@
+/*------------------------------------------------------------------
+
+Project:	Cleaning Services
+Version:	1.1
+Assigned to:	Alex Zaymund
+Primary use:	Cleaning Services
+
+
+[Table of contents]
+
+ - Preview page styles
+
+-------------------------------------------------------------------*/
+
+
+.paralax {
+    background-attachment: fixed !important;
+    background-repeat: repeat !important;
+	background-position:top center;
+}
+
+.demopage-header {
+        min-height: 347px;
+    padding-bottom: 68px;
+    padding-top: 42px;
+}
+.demopage-logo {
+    display: block;
+    margin: 0 auto;
+    width: 383px;
+}
+.demopage-logo img {
+       margin: 0 auto;
+    float: none;
+    display: block;
+}
+.demopage-header h1 {
+       font-size: 18px;
+    letter-spacing: 6px;
+    line-height: 100%;
+    padding-bottom: 45px;
+    padding-top: 45px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+}
+.demopage-header .button-border {
+    border-color: #fff;
+    clear: both;
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    line-height: 100%;
+    margin: auto;
+    padding: 19px 0;
+    text-align: center;
+    width: 200px;
+}
+
+
+
+.demopage .hvr-rectangle-out::before {
+    background: #e5534c none repeat scroll 0 0;
+}
+.demopage .hvr-rectangle-out:hover {
+    border-color: #e5534c;
+    color: #fff;
+}
+.demopage-content {
+    padding: 92px 0 0;
+}
+.demopage-title {
+    font-size: 15px;
+    line-height: 100%;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+.demopage .starSeparator {
+    color: #e5534c !important;
+}
+.demopage-preview {
+    padding: 0px 0px 0;
+}
+.demopage-preview > div {
+    padding-bottom: 70px;
+}
+.demopage-preview_item {
+    background-image: url("../media/demo-page/mac.png");
+    display: block;
+    height: 314px;
+    margin: 0 auto;
+    padding: 17px 18px 85px 16px;
+    width: 370px;
+}
+.demopage-preview_inner {
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.demopage-preview_inner img {
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all 4s ease 0s;
+    width: 100%;
+}
+.demopage-preview_inner:hover img {
+/*    top: -700px;*/
+}
+.demopage-preview h3 {
+    font-size: 16px;
+    line-height: 100%;
+    padding: 53px 0 29px;
+    text-align: center;
+}
+.demopage-preview .button-border {
+    border-color: #e5534c;
+    font-size: 11px;
+    padding: 13px 50px 12px;
+}
+.demopage-content .starSeparatorBox {
+    padding-bottom: 25px;
+}
+.demopage-buynow {
+    border-top: 2px solid #ececec;
+    padding-bottom: 6px;
+    padding-top: 70px;
+    text-align: center;
+}
+.demopage-buynow .btn-primary {
+    background-color: #e5534c;
+    font-size: 15px;
+    padding: 17px 68px 19px;
+}
+.demopage-buynow .btn-primary:hover {
+    padding: 17px 75px 19px;
+}
+.demopage-helptitle {
+    background-color: #f6f6f6;
+    padding: 65px 0;
+}
+.demopage-helptitle h3 {
+    font-size: 17px;
+    text-align: center;
+}
+ul.demopage-help_list {
+    float: left;
+    padding: 0 19%;
+    width: 100%;
+}
+ul.demopage-help_list li:first-child {
+    border-left: 1px solid #eee;
+}
+ul.demopage-help_list li {
+    border-right: 1px solid #eee;
+    float: left;
+}
+ul.demopage-help_list li a {
+    color: #333;
+    float: left;
+    font-size: 16px;
+    line-height: 100%;
+    padding: 70px 37px 65px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+ul.demopage-help_list li a span {
+    color: #e5534c;
+    float: left;
+    font-size: 33px;
+    margin: -8px 15px 0 0;
+}
+ul.demopage-help_list li a:hover {
+    color: #e5534c;
+}
+.demopage-footer {
+    background-color: #333;
+    padding: 46px 0;
+}
+.demopage-copyright {
+    float: left;
+    font-size: 13px;
+    line-height: 100%;
+    text-align: center;
+    width: 100%;
+}
+.demopage-copyright span {
+    color: #e5534c;
+    margin: 0 4px;
+}
+
+
+
+.demopage-help_list{
+	list-style:none;
+	margin:0;
+}
+
+.demopage-copyright{
+	color:#fff;
+}
+@media (max-width: 1199px) {
+.demopage-preview {
+    padding: 81px 40px 0;
+}
+ul.demopage-help_list {
+    padding: 0;
+}
+ul.demopage-help_list li {
+    width: 100%;
+}
+ul.demopage-help_list li a {
+    text-align: center;
+    width: 100%;
+}
+ul.demopage-help_list li {
+    border-left: 1px solid #eee;
+}
+ul.demopage-help_list li:first-child {
+    border-bottom: 1px solid #eee;
+}
+}
+@media (max-width: 991px) {
+.demopage-preview {
+    padding: 81px 0 0;
+}
+}

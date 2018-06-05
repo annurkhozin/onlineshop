@@ -1,0 +1,100 @@
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+/* COLOR CSS 2*/
+/*//////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+a,
+.color_primary,
+.color_primary_hov:hover,
+.ui-title-block,
+.list-num li::before,
+.list-markers li:before,
+.accordion_mod-2 .panel-default .panel-heading .panel-title,
+.breadcrumb > .active,
+.yamm .nav > li > a:hover,
+.rating .icon,
+.links-categories__label,
+.list-advantages__icon .icon,
+#filter li a:hover,
+.list-categories__item:hover .list-categories__name,
+.list-categories__item:hover .list-categories__amout,
+.list-categories__item:hover .list-categories__mark,
+.nav-tabs > li.active > a,
+.list-posts .tags-group a:hover,
+.comment-btn,
+.list-staff__item:hover .list-staff__name,
+.product-rating .icon,
+.footer-list__item:before,
+.footer-list__link:hover,
+.footer-contacts .icon {
+	color: #4fb0fd;
+}
+
+.bg-color_primary,
+.bg-color_primary_hov:hover,
+.btn-primary,
+.ui-btn_primary,
+.accordion_mod-1 .panel-default .panel-heading .btn-collapse,
+.nav-label_primary,
+.links-categories__inner:before,
+.list-posts__info:before,
+.banner__title,
+.subscribe_mod-a,
+.wp-tag-cloud a:hover,
+.jelect-option:hover,
+.jelect-option_state_active,
+.card-btns__add,
+.yamm .navbar-toggle,
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+	background-color: #4fb0fd;
+}
+
+.ui-btn_primary,
+.list-links > li:hover > a,
+.accordion_mod-1 .panel-default .panel-heading .btn-collapse,
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span,
+.flex-active-slide,
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+	border-color: #4fb0fd;
+}
+
+.blockquote_primary {
+	border-left-color: #4fb0fd;
+}
+
+.nav-label_primary:before,
+.owl-theme_mod-b .owl-controls .owl-buttons div:hover,
+.list-advantages_mod-b .list-advantages__link:hover,
+.list-advantages_mod-c .list-advantages__link:hover,
+.pager li:hover {
+	border-top-color: #4fb0fd;
+}
+
+.owl-theme_mod-a .owl-controls .owl-buttons div:hover,
+.list-advantages_mod-a .list-advantages__link:hover,
+.social-links__link:hover {
+	border-bottom-color: #4fb0fd;
+}
+
+.btn {
+	box-shadow: inset 4px 0 0 0 #4fb0fd;
+}
+.btn:hover {
+	box-shadow: inset 300px 0 0 0 #4fb0fd;
+}
+
+.ip-header .ip-loader svg path.ip-loader-circle {
+	stroke: #4fb0fd;
+}
+
