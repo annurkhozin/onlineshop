@@ -5,7 +5,8 @@ class PublicCTRL extends Users {
 
 	function beranda() {
 		$data	= $this->public_data;
-		$data['title']='Login';
+		$data['title']='Beranda';
+		$data['content']='Beranda/beranda.php';
 		$this->load->view('Styler/Template', $data);
 	}
 }

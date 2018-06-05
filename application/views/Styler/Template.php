@@ -9,7 +9,7 @@ function path_members(){
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-<title><?=$info['title_app']?></title>
+<title><?=$title.' | '.$info['title_app']?></title>
 	<link rel="icon" type="image/png" href="<?=base_url().'assets/images/'.$info['favicon_app']?>">
 <link href="<?=path_members()?>/css/master.css" rel="stylesheet">
 <script src="<?=path_members()?>/plugins/jquery/jquery-1.11.3.min.js"></script>
@@ -104,7 +104,10 @@ function path_members(){
         </div>
       </div>
     </div>
-    
+    <?php if($content){
+				include $content;
+			} 
+		?>
     <footer class="footer footer_mod-a wow bounceInUp" data-wow-duration="2s">
       <div class="footer-top">
         <div class="container">
