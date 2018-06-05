@@ -1,0 +1,384 @@
+/*------------------------------------------------------------------
+
+Project:	Cleaning Services
+Version:	1.1
+Assigned to:	Alex Zaymund
+Primary use:	Cleaning Services
+
+
+[Table of contents]
+
+ - Responsive styles
+
+-------------------------------------------------------------------*/
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+/* RESPONSIVE CSS */
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+@media (min-width:1350px) {
+	.header-cart__product {right: -20px;}
+}
+
+
+
+/* 768 x 1024 (Laptop) */
+
+@media (min-width:992px) and (max-width:1199px) {
+	.header-search__form {width: 315px;}
+	.yamm .nav > li > a {font-size: 12px;}
+
+	.list-categories__name {width: 140px;}
+	.list-advantages__inner {width: 120px;}
+	.product-card__group {margin-right: 10px;}
+	.widget-posts__item {text-align: center;}
+	.widget-posts .entry-thumbnail {
+		float: none;
+		display: block;
+		margin: 0 auto 20px;
+	}
+	.widget-posts .entry-main {margin-left: 0;}
+}
+
+/* end min-width:992px and max-width:1199px */
+
+
+@media (max-width:1199px) {
+	.products__item.isotope-item {
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+	.links-categories__item {
+		width: auto;
+		max-width: 100%;
+		margin-bottom: 40px;
+	}
+	.subscribe__form {margin-top: 20px;}
+	.products-counter {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.products-counter__item {margin-left: 5px;}
+	.products__item {width: 210px;}
+	.products__foto img {max-width: 198px;}
+	.products_details .products__foto img {max-width: 258px;}
+	.products-small {text-align: center;}
+	.products-small .products-small__inner {margin-left: 0;}
+	.products-small .products-small__item {padding-right: 10px;}
+	.products-small__foto,
+	.products-small_slider .products-small__foto {
+		display: block;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.products-small .rating li {
+		float: none;
+		display: inline-block;
+		padding-right: 0;
+		margin-right: -2px;
+	}
+	.products-small_slider {padding: 20px;}
+}
+
+/* end max-width:1199px */
+
+
+/* 768 x 1024 (iPad - Portrait) */
+
+@media (max-width:991px) {
+	.header-search__form {width: 205px;}
+	.product-search__btn {font-size: 11px;}
+	.header-cart__inner {margin-right: 5px;}
+	.header-cart__qty {font-size: 11px;}
+	.header-cart__preview .icon {font-size: 30px;}
+
+	.sidebar {padding-bottom: 0;}
+	.subscribe__form {float: none;}
+	.products-small__item {
+		display: inline-block;
+		width: 200px;
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-bottom: 25px;
+		padding: 10px;
+		vertical-align: top;
+		border: 1px solid #eee;
+	}
+	.product-card__group {
+		display: block;
+		width: auto;
+		max-width: 225px;
+	}
+	.card-btns {text-align: center;}
+	.card-btns__other {
+		float: none;
+		display: block;
+		margin-right: 0;
+		margin-top: 20px;
+}
+	.card-btns__add {
+		display: block;
+		margin: 10px auto 0;
+	}
+
+	.footer-title {margin-top: 38px;}
+}
+
+/* end max-width:991px */
+
+
+@media (max-width:991px) and (min-width:768px) {
+	.yamm .nav > li > a {
+		padding-left: 17px;
+		padding-right: 17px;
+		font-size: 11px;
+	}
+	.list-categories__name {width: 640px;}
+	.list-advantages__icon {margin-bottom: 20px;}
+	.banner__title {
+		padding: 15px;
+		font-size: 23px;
+	}
+	.banner__info {font-size: 10px;}
+	.banner__btn {
+		padding: 12px;
+		font-size: 12px;
+	}
+	.widget-posts__wrap {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.widget-posts {text-align: center;}
+	.widget-posts__item {
+		display: inline-block;
+		width: 200px;
+		margin-left: 15px;
+		margin-right: 15px;
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+	.widget-posts .entry-main {margin-left: 110px;}
+	.widget-posts .entry-header {font-size: 13px;}
+}
+
+/* end max-width:991px and min-width:768px */
+
+
+/*480 x 640 (small tablet and iPhone)*/
+
+@media (max-width:767px) {
+	.top-header__links,
+	.top-header__select {
+		float: none;
+		text-align: center;}
+	.top-header__select {
+		margin-right: 0;
+		margin-bottom: 10px;}
+	.top-header__link:first-child {margin-left: 0;}
+	.logo {
+		display: block;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+	.header-cart {
+		float: none;
+		margin-top: 10px;
+	}
+	.header-cart__preview {
+		text-align: center;
+	}
+	.header-cart__product {
+		right: auto;
+		left: 50%;
+		margin-left: -140px;
+	}
+	.nav-label-wrap {top: 0;}
+	.yamm .nav > li > a {
+		padding-left: 0;
+		padding-right: 0;
+		border-right: none;
+	}
+	.yamm .navbar-nav {margin: 0;}
+	.yamm-mega {
+		margin-bottom: 21px;
+		text-align: center;
+	}
+	.yamm-banner_mod-2 {margin-top: 20px;}
+	.yamm-banner_mod-2 img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.links-categories {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.list-categories__name {width: auto;}
+	.list-advantages__item {
+		display: block;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+	.products {text-align: center;}
+	.banner__title {
+		padding: 10px;
+		font-size: 16px;
+		text-align: center;
+	}
+	.banner__info {font-size: 10px;}
+	.banner__btn {
+		padding: 10px;
+		font-size: 10px;
+	}
+	.products__item {
+		width: 210px;
+		margin-right: 0;
+	}
+	.products__foto img {max-width: 198px;}
+	.list-posts__info {float: left;}
+	.subscribe__icon {float: left;}
+	.subscribe__inner {
+		display: block;
+		margin-left: 50px;
+	}
+	.subscribe__description {line-height: 1.2;}
+	.social-links__title {
+		display: block;
+		margin-bottom: 20px;
+	}
+	.social-links {margin-left: 0;}
+	.social-links__link {
+		margin-left: 0;
+		padding-bottom: 20px;
+		padding-left: 9px;
+		padding-right: 9px;
+	}
+	.products-counter {font-size: 11px;}
+	.products-counter__inner {font-size: 11px;}
+	.main-slider_mod-2 .item-wrap {
+		top: 25%;
+		left: 35%;
+	}
+	.main-slider_mod-2 .slide-title {font-size: 20px;}
+	.list-advantages_mod-b .list-advantages__link,
+	.list-advantages_mod-c .list-advantages__link {
+		padding-bottom: 0;
+		padding-top: 30px;
+	}
+	.products-small {
+		max-width: 460px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.sorting {text-align: center;}
+	.sorting__info {margin-bottom: 15px;}
+	.sorting__info,
+	.sorting__selects,
+	.sorting__item {
+		display: block;
+		float: none;
+	}
+	.sorting__item,
+	.sorting__item .jelect {margin-bottom: 5px;}
+	.products_details .products__foto {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 20px;
+	}
+	.products_details .products__wrap {margin-left: 0;}
+	.products_details .rating li {
+		float: none;
+		display: inline-block;
+		padding-right: 0;
+		margin-right: -2px;
+	}
+	.products_details .products__category {
+		display: block;
+		margin-left: 0;
+	}
+	.product-card__slider {
+		max-width: 400px;
+		margin: 0 auto 30px;
+	}
+	.product-description .nav li {
+		display: block;
+		margin: 0 auto 20px;
+	}
+	.list-posts .tags-group li {
+		font-size: 15px;
+		margin-right: 11px;
+		margin-top: 7px;
+}
+	.comment-author {display: block;}
+	.comment-datetime {float: none;}
+	.comment-reply {margin-left: 12px;}
+
+	.footer-nav__item {margin-bottom: 10px;}
+	.list-payments__item {padding: 5px;}
+}
+
+/* end max-width:767px */
+
+
+@media (max-width:767px) and (min-width:480px) {
+
+}
+
+/*320 x 480 (iPhone)*/
+
+@media (max-width:480px) {
+	.top-header__link {
+		display: block;
+		margin-left: 0;
+		margin-top: 20px;
+	}
+	.header-search__filter {
+		float: none;
+		width: 100%;
+	}
+	.header-search__form {
+		width: 100%;
+		border-top: 1px solid #eee;
+	}
+
+	.main-slider_mod-1 .slide-title {font-size: 16px;}
+	.main-slider_mod-1 .item-wrap {top: 50px;}
+	.main-slider .ui-btn {
+		margin-top: 15px;
+		padding: 10px;
+		font-size: 11px;
+	}
+	.subscribe {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.subscribe__inner {margin-left: 40px;}
+	.subscribe__icon {font-size: 22px;}
+	.owl-theme_mod-b .owl-controls {top: -122px;}
+	.banner_w-btn {margin-bottom: 50px;}
+	.banner_mod-a {margin-bottom: 30px;}
+	.products.isotope {
+		width: 230px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.product-card .wrap-rating {text-align: center;}
+	.product-card .rating {margin-right: 0;}
+	.product-card__reviews {
+		display: block;
+		margin: 10px auto 0;
+	}
+	.section-contacts {margin-left: 0;}
+	.avatar-placeholder {float: none;}
+	.comment-inner {
+		margin-top: 10px;
+		margin-left: 0;
+	}
+	.comments-list .children {margin-left: 30px;}
+	.comment {margin-bottom: 30px;}
+}

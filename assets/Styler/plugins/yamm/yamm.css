@@ -1,0 +1,159 @@
+/*!
+ * Yamm!3 - Yet another megamenu for Bootstrap 3
+ * http://geedmo.github.com/yamm3
+ *
+ * @geedmo - Licensed under the MIT license
+ */
+
+
+.header.sticky .navbar {
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: #26C9FF;
+	border-bottom: 3px solid #ffd526;
+	z-index:1111;
+}
+.header.sticky .navbar .yamm {
+	margin-top: 0;
+}
+.header.sticky .top-cart,
+.header.sticky #search-global-menu  {
+	display: none !important;
+}
+
+
+.yamm {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 0;
+	min-height: auto;
+	border: 0 none;
+	z-index: 777;
+	vertical-align: middle;
+	margin-top: 26px;
+	
+}
+.yamm .navbar-collapse {
+	padding-left: 0;
+	padding-right: 0;
+}
+.yamm .navbar-brand {
+	color: #fff;
+	float: left;
+	font-size: 24px;
+	font-weight: 700;
+	height: 50px;
+	line-height: 21px;
+	padding: 14.5px 15px;
+	text-transform: uppercase;
+}
+.yamm .nav {
+	display: inline-block;
+	vertical-align: middle;
+}
+.yamm .nav > li {
+	display: inline-block;
+	position: static;
+	padding-bottom: 24px;
+}
+.yamm .nav > li > a {
+	position: relative;
+	display: block;
+	padding: 4px 28px;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: all .1s ease-out;
+	font-size: 13px;
+	color: #222;
+	font-family: Montserrat;
+	border-right: 1px solid #eee;
+}
+.yamm .nav > li > a:hover {
+	text-decoration: underline;
+}
+.yamm .nav > .li-last > a {
+	border-right: #000;
+}
+.yamm .dropdown.yamm-fw .dropdown-menu {
+	left: 0;
+	right: 0;
+}
+.yamm-fw {
+	position: inherit;
+}
+.yamm .navbar-toggle .icon-bar {
+	background: #fff;
+}
+.yamm .nav, .yamm .collapse, .yamm .dropup, .yamm .dropdown {
+	position: static;
+}
+.yamm .container {
+	position: relative;
+}
+.yamm .dropdown-menu {
+	left: auto;
+}
+.yamm .yamm-fw .dropdown-menu {
+	left: 0;
+	top: 44px;
+	box-shadow: 0px 0px 13.2px 1.8px rgba(0, 0, 0, 0.1);
+	border: 0;
+}
+.yamm .yamm-content {
+	padding: 20px 30px;
+}
+.yamm .dropdown.yamm-fw .dropdown-menu {
+	left: 0;
+	right: 0;
+}
+
+.yamm-mega {
+
+}
+.yamm-mega .ui-title-block {
+	font-size: 13px;
+	margin-top: 5px;
+	margin-bottom: 22px;
+	line-height: 1;
+}
+.yamm-mega .ui-title-block:after {
+	margin-top:12px;
+
+}
+.yamm-mega .list li {
+	font-size: 11px;
+	padding-bottom: 5px;
+	line-height: 1.2;
+}
+.yamm-banner_mod-1 img {
+	margin: 30px auto 0;
+}
+.yamm-banner_mod-2 {
+
+}
+
+
+@media (max-width:767px) {
+
+	html .yamm .dropdown-menu {
+		position: relative;
+		top: 0;
+		float: none;
+		color: #ffd526;
+	}
+	.yamm {
+		display: block;
+		margin-top: 0;
+	}
+	.yamm .nav {
+		display: block;
+	}
+	.yamm .nav > li {
+		display: block;
+	}
+	.yamm .nav > li > a:hover {
+		color: #ffd526;
+	}
+}

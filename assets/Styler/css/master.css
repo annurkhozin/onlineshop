@@ -1,0 +1,37 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	Cleaning Services
+Version:	1.1
+Assigned to:	Alex Zaymund
+Primary use:	Cleaning Services
+-------------------------------------------------------------------*/
+
+/* FONTS*/
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100|Montserrat:400,700);
+@import url('../fonts/font-awesome/css/font-awesome.min.css');
+@import url('../fonts/simple/simple-line-icons.css');
+
+/* PLUGIN CSS */
+@import url('../plugins/bootstrap/css/bootstrap.css');
+@import url('../plugins/isotope/isotope.css');
+@import url('../plugins/validation/validation-2.2.min.css');
+@import url('../plugins/owl-carousel/owl.carousel.css');
+@import url('../plugins/owl-carousel/owl.transitions.css');
+@import url('../plugins/owl-carousel/owl.theme.css');
+@import url('../plugins/prettyphoto/css/prettyPhoto.css');
+@import url('../plugins/nouislider/jquery.nouislider.css');
+@import url('../plugins/yamm/yamm.css');
+@import url('../plugins/jelect/main.css');
+@import url('../plugins/flexslider/flexslider.css');
+@import url('../plugins/animate/animate.css');
+@import url('../plugins/sliderpro/css/slider-pro.css');
+
+
+/* MAIN CSS */
+@import url('theme.css');
+@import url('shop.css');
+@import url('responsive.css');
+@import url('color.css');
+/*@import url('debugging.css');*/
+

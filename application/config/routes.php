@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'AuthCTRL/login';
+$route['default_controller'] = 'PublicCTRL/beranda';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 // Translate Enkipsi
@@ -63,6 +63,7 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
 
 
 // Member
+$route['Beranda'] = 'PublicCTRL/beranda';
 
 
 

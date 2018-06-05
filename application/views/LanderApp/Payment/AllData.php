@@ -54,7 +54,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<button class="btn btn-success btn-rounded faa-parent animated-hover" data-toggle="tooltip" data-placement="top" title="" data-original-title="Simpan <?=$title?> Baru" onclick="btnSave()"><i class="fa fa-plus faa-vertical"></i> Simpan</button>
 	</div>
 </form>
-<!-- <span id="tampil"></span> -->
 </div>
 <div class="col-sm-7">
 <div class="panel">

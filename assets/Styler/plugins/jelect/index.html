@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="msapplication-tap-highlight" content="no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--[if IE]><meta name="imagetoolbar" content="no"><meta name="msthemecompatible" content="no"><![endif]-->
+		<meta name="cleartype" content="on">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="address=no">
+		<title>jQuery Jelect</title>
+		<meta name="description" content="A functional wrapper for a stylized select.">
+		<meta name="keywords" content="select, jelect, custom select, dropdown, drop-down">
+		<meta name="author" content="GC92">
+		<link href="favicon.ico" rel="shortcut icon">
+		<link href="https://fonts.googleapis.com/css?family=Cuprum:400,700&amp;subset=latin,cyrillic" rel="stylesheet">
+		<link href="css/main.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main">
+			<img src="img/jelect.png" width="176" height="36" class="logo">
+			<p class="description">A functional wrapper for a stylized select.</p>
+			<h1 class="h1">Jelect Example</h1>
+			<div role="select" class="jelect">
+				<input id="jelect" name="tool" value="0" data-text="imagemin" type="text" class="jelect-input">
+				<div tabindex="0" role="button" class="jelect-current">imagemin</div>
+				<ul class="jelect-options">
+					<li data-val='0' tabindex="0" role="option" class="jelect-option jelect-option_state_active">imagemin</li>
+					<li data-val='1' tabindex="0" role="option" class="jelect-option">stylus</li>
+					<li data-val='2' tabindex="0" role="option" class="jelect-option">cssmin</li>
+					<li data-val='3' tabindex="0" role="option" class="jelect-option">autoprefixer</li>
+					<li data-val='4' tabindex="0" role="option" class="jelect-option">cssbeautifier</li>
+					<li data-val='5' tabindex="0" role="option" class="jelect-option">jade</li>
+					<li data-val='6' tabindex="0" role="option" class="jelect-option">prettify</li>
+					<li data-val='7' tabindex="0" role="option" class="jelect-option">jshint</li>
+					<li data-val='8' tabindex="0" role="option" class="jelect-option">concat</li>
+					<li data-val='9' tabindex="0" role="option" class="jelect-option">uglify</li>
+					<li data-val='10' tabindex="0" role="option" class="jelect-option">copy</li>
+					<li data-val='11' tabindex="0" role="option" class="jelect-option">connect</li>
+					<li data-val='12' tabindex="0" role="option" class="jelect-option">watch</li>
+					<li data-val='13' tabindex="0" role="option" class="jelect-option">livereload</li>
+				</ul>
+			</div>
+			<div class="fork-on-github"><a href="https://github.com/CSSSR/jelect/" class="fork-on-github__link">Fork me on GitHub</a>
+			</div>
+			<div class="copyright dark">©GC92, 2014</div>
+		</div>
+		<script src="js/libs/jquery-2.1.1.min.js"></script>
+		<script src="js/libs/jquery.jelect.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
