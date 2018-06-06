@@ -32,7 +32,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 
-		<textarea class="form-control summernote-example" name="message" rows="10">Tulis Email...</textarea>
+		<textarea class="form-control summernote-example" name="message" rows="10">
+			<center style="width:100%;table-layout:fixed">
+				<div style="max-width:600px">
+					<table style="border-spacing:0;font-family:sans-serif;color:#333333;Margin:0 auto;width:100%;max-width:600px" align="center">
+						<tbody>
+							<tr>
+								<td style="background:#42b549"><br></td>
+							</tr>
+							<tr>
+								<td style="background-color:#ffffff;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;width:100%;text-align:left;color:#333333;font-size:14px">Hai {$name_user},<br><div><br></div><div>Isi pesan email disini...<br></div><div><br></div><div>Salam.</div>{$name_system}<br><br><br></td>
+							</tr>
+							<tr>
+								<td style="background-color: rgb(255, 255, 255); padding: 10px 20px; width: 100%; text-align: center; color: rgb(51, 51, 51); font-size: 12px;">© 2018 {$name_system}<br></td>
+							</tr><tr>
+								<td style="background:#42b549"><br></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</center>
+		</textarea>
 	</div>
 	<div class="panel-footer text-center">
 		<button class="btn btn-success btn-rounded faa-parent animated-hover" data-toggle="tooltip" data-placement="top" title="" data-original-title="Simpan <?=$title?> Baru" onclick="btnSave()"><i class="fa fa-plus faa-vertical"></i> Simpan</button>

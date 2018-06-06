@@ -29,8 +29,8 @@ function path_members(){
           <div class="row">
             <div class="col-xs-12">
               <ul class="top-header__links list-unstyled">
-                <li class="top-header__link"><a href="javascript:void(0);">DAFTAR</a></li>
-                <li class="top-header__link"><a href="javascript:void(0);">MASUK</a></li>
+                <li class="top-header__link"><a href="<?=base_url()?>Register">DAFTAR</a></li>
+                <li class="top-header__link"><a href="<?=base_url()?>Login">MASUK</a></li>
               </ul>
             </div>
           </div>
@@ -91,7 +91,8 @@ function path_members(){
             <div class="navbar yamm">
               <div class="navbar-header hidden-md  hidden-lg  hidden-sm">
                 <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a href="javascript:void(0);" class="navbar-brand">Menu</a> </div>
+                <a href="javascript:void(0);" class="navbar-brand">Menu</a>
+              </div>
               <div id="navbar-collapse-1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <li><a href="javascript:void(0);">Beranda</a></li>

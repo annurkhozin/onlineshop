@@ -3,6 +3,109 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AuthCTRL extends Users {
 
+	function registerMember() {
+		$data	= $this->public_data;
+		$data['title']='Register';
+		$data['content']='Auth/register.php';
+		$this->load->view('Styler/Template', $data);
+	}
+
+	public function prosesRegister() {
+		$this->form_validation->set_rules('fullname','Nama Lengkap','trim|required');
+		$this->form_validation->set_rules('email','Email','trim|required');
+		$this->form_validation->set_rules('username','Username','trim|required');
+		$this->form_validation->set_rules('password','Password','trim|required');
+		if($this->form_validation->run()==FALSE){
+			$this->session->set_flashdata('error',validation_errors());
+		}else{
+			if($this->input->post('password')!=$this->input->post('confirmPass')){
+				$this->session->set_flashdata('error','Konfirmasi password tidak sama');
+			}else{
+				$where = array(
+					'email' => $this->input->post('email')
+					);
+				$hasil=$this->M__db->cek('members__','member_id',$where);
+				if($hasil->num_rows()>0){
+					$this->session->set_flashdata('error','Email sudah terdaftar!');
+				}else{
+					$where = array(
+						'username' => $this->input->post('username')
+						);
+					$hasil=$this->M__db->cek('members__','member_id',$where);
+					if($hasil->num_rows()>0){
+						$this->session->set_flashdata('error','Username sudah digunakan!');
+					}else{
+						$this->db->trans_begin();
+						$data = array(
+							'fullname' => $this->input->post('fullname'),
+							'email' => $this->input->post('email'),
+							'username' => paramEncrypt($this->input->post('username')),
+							'password' => paramEncrypt($this->input->post('password')),
+							'join_date' => date('Y-m-d H:i:s'),
+							'is_active' => 0
+							);
+						$this->M__db->simpan('members__',$data);
+						if ($this->db->trans_status() === FALSE) {
+							$this->db->trans_rollback();
+							$this->session->set_flashdata('error','Gagal Mendaftar 1');	
+						}else{
+							$this->load->model('EmailConfig'); // load configurations email
+							$fromMail = $this->EmailConfig->sendDefault(); // load configurations email
+							$this->email->from($fromMail['smtp_user'], $fromMail['name']);
+							$this->email->to($this->input->post('email')); 
+							$where = array(
+								'name' => 'verifikasi_akun',
+								'is_active' => 1
+								);
+							$hasil=$this->M__db->cek('emailTemplate__','subject, message',$where)->row_array();
+							if($hasil==null){
+								$this->db->trans_rollback();
+								$this->session->set_flashdata('error','Gagal Mendaftar 2');	
+							}else{
+								$this->email->subject($hasil['subject']);
+								$content = $hasil['message'];
+								$url_verifikasi = base_url().'Verifikasi/'.paramEncrypt($this->input->post('email'));
+								$vars = array(
+									'{$name_user}'		=> $this->input->post('fullname'),
+									'{$url_verifikasi}' => $url_verifikasi,
+									'{$name_system}'	=> $this->public_data['info']['name_app']
+								);
+								$body = strtr($content, $vars);
+								$this->email->message($body);
+								if (!$this->email->send()) {
+									$this->db->trans_rollback();
+									$this->session->set_flashdata('error','Gagal Mendaftar 3');
+								}else{ 
+									$this->db->trans_commit();									
+									$this->session->set_flashdata('successMail','Sukses mendaftar, Silahkan cek kotak masuk Email '.$this->input->post('email'));	
+								}
+							}
+						}		
+					}
+				}
+			}
+		}
+		redirect(base_url().'Register');
+	}
+
+	function verifikasiAkun() {
+		$where = array(
+			'email' => paramDecrypt($this->uri->segment(2))
+			);
+		$data = array(
+			'is_active' => 1
+			);
+		$this->M__db->update('members__',$where,$data);
+		if ($this->db->trans_status() === FALSE) {
+			$this->db->trans_rollback();
+			$this->session->set_flashdata('errorLogin','Gagal Verifikasi akun!');	
+		}else{
+			$this->db->trans_commit();
+			$this->session->set_flashdata('successLogin','Sukses Verifkasi akun!');	
+		}
+		redirect(base_url().'Register');
+	}
+	
 	function login() {
 		$data	= $this->public_data;
 		$data['title']='Login';
