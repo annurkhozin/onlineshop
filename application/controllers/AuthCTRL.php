@@ -29,7 +29,7 @@ class AuthCTRL extends Users {
 					$this->session->set_flashdata('error','Email sudah terdaftar!');
 				}else{
 					$where = array(
-						'username' => $this->input->post('username')
+						'username' => paramEncrypt($this->input->post('username'))
 						);
 					$hasil=$this->M__db->cek('members__','member_id',$where);
 					if($hasil->num_rows()>0){
