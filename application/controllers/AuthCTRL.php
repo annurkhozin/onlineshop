@@ -20,6 +20,7 @@ class AuthCTRL extends Users {
 		}else{
 			if($this->input->post('password')!=$this->input->post('confirmPass')){
 				$this->session->set_flashdata('error','Konfirmasi password tidak sama');
+				
 			}else{
 				$where = array(
 					'email' => $this->input->post('email')
@@ -47,7 +48,7 @@ class AuthCTRL extends Users {
 						$this->M__db->simpan('members__',$data);
 						if ($this->db->trans_status() === FALSE) {
 							$this->db->trans_rollback();
-							$this->session->set_flashdata('error','Gagal Mendaftar 1');	
+							$this->session->set_flashdata('error','Gagal Mendaftar');	
 						}else{
 							$this->load->model('EmailConfig'); // load configurations email
 							$fromMail = $this->EmailConfig->sendDefault(); // load configurations email
@@ -60,7 +61,7 @@ class AuthCTRL extends Users {
 							$hasil=$this->M__db->cek('emailTemplate__','subject, message',$where)->row_array();
 							if($hasil==null){
 								$this->db->trans_rollback();
-								$this->session->set_flashdata('error','Gagal Mendaftar 2');	
+								$this->session->set_flashdata('error','Gagal Mendaftar');	
 							}else{
 								$this->email->subject($hasil['subject']);
 								$content = $hasil['message'];
@@ -74,10 +75,10 @@ class AuthCTRL extends Users {
 								$this->email->message($body);
 								if (!$this->email->send()) {
 									$this->db->trans_rollback();
-									$this->session->set_flashdata('error','Gagal Mendaftar 3');
+									$this->session->set_flashdata('error','Gagal Mendaftar');
 								}else{ 
 									$this->db->trans_commit();									
-									$this->session->set_flashdata('successMail','Sukses mendaftar, Silahkan cek kotak masuk Email '.$this->input->post('email'));	
+									$this->session->set_flashdata('success','Sukses mendaftar, Silahkan cek kotak masuk Email '.$this->input->post('email'));	
 								}
 							}
 						}		
@@ -98,14 +99,52 @@ class AuthCTRL extends Users {
 		$this->M__db->update('members__',$where,$data);
 		if ($this->db->trans_status() === FALSE) {
 			$this->db->trans_rollback();
-			$this->session->set_flashdata('errorLogin','Gagal Verifikasi akun!');	
+			$this->session->set_flashdata('error','Gagal Verifikasi akun!');	
 		}else{
 			$this->db->trans_commit();
-			$this->session->set_flashdata('successLogin','Sukses Verifkasi akun!');	
+			$this->session->set_flashdata('success','Sukses Verifkasi akun!');	
 		}
 		redirect(base_url().'Register');
 	}
-	
+
+	public function prosesLoginMember()	{
+		$where = array(
+			'username' => paramEncrypt($this->input->post('username')),
+			'password' => paramEncrypt($this->input->post('password')),
+			);
+		$hasil=$this->M__db->cek('members__','*',$where);
+		if($hasil->num_rows()>0){
+			$hasil_row=$hasil->row_array();
+			if($hasil_row['is_active']!=1){
+				$this->session->set_flashdata('error','Akun anda belum aktif, mohon cek kotak masuk email anda');	
+				redirect(base_url().'Register');
+			}else{
+				$data=array(
+					"session_user"=> $hasil_row['member_id'],
+					"level_user"=> 0
+				);
+				$this->session->set_userdata($data);
+				$where = array(
+					'member_id' => $hasil_row['member_id'],
+					'is_active' => 1
+					);
+				$add=$this->M__db->cek('addressMembers__','*',$where);
+				if($add->num_rows()>0){
+					$this->session->set_flashdata('success','Berhasil Masuk dengan akun '.$this->input->post('username'));			
+					redirect(base_url());
+				}else{
+					$this->session->set_flashdata('success','Berhasil Masuk dengan akun '.$this->input->post('username'));			
+					$this->session->set_flashdata('warning','Mohon Melengkapi akun anda');	
+					redirect(base_url().'Account');				
+				}
+			}
+		}else{
+			$this->session->set_flashdata('error','Username / password tidak sesuai!');	
+			redirect(base_url().'Register');
+		}
+	}
+
+
 	function login() {
 		$data	= $this->public_data;
 		$data['title']='Login';
@@ -129,13 +168,13 @@ class AuthCTRL extends Users {
 			redirect(base_url().'Admin/Beranda');
 		}else{
 			$this->session->set_flashdata('error','Username / password tidak sesuai!');	
-			redirect(base_url().'Login');
+			redirect(base_url().'LogiN');
 		}
 	}
 
 	public function deleteSession(){
 		$this->session->unset_userdata('session_user');
 		$this->session->unset_userdata('level_user');
-		redirect (base_url().'Login');
+		redirect (base_url());
 	}
 }
