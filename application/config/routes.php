@@ -58,16 +58,21 @@ $route['Translate'] = 'TranslateCTRL';
 
 // Member
 $route['Beranda'] = 'PublicCTRL/beranda';
+$route['Account'] = 'AccountCTRL/dataAkun';
+
+// Raja Ongkir
+$route['getcity'] = 'RajaOngkirCTRL/getcity';
 
 // Auth Member
 $route['Register'] = 'AuthCTRL/registerMember';
 $route['prosesRegister'] = 'AuthCTRL/prosesRegister';
 $route['Verifikasi/:any'] = 'AuthCTRL/verifikasiAkun';
+$route['prosesLogin'] = 'AuthCTRL/prosesLoginMember';
 
 
 
 // Auth Admin
-$route['Login'] = 'AuthCTRL/login';
+$route['LogiN'] = 'AuthCTRL/login';
 $route['cekLogin'] = 'AuthCTRL/prosesLogin';
 $route['Destroy'] = 'AuthCTRL/deleteSession';
 
