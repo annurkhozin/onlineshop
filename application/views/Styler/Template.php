@@ -48,7 +48,8 @@ function path_members(){
                 <li class="top-header__link"><a href="<?=base_url()?>Register"><i class="fa fa-sign-in"></i> MASUK</a></li>
                 <li class="top-header__link"><a href="<?=base_url()?>Register"><i class="fa fa-user-plus"></i> DAFTAR</a></li>
                 <?php }else{ ?>
-                  <li class="top-header__link"><a href="<?=base_url()?>Register"><i class="fa fa-user"></i> AKUN</a></li>
+                  <li class="top-header__link"><a href="#"><i class="fa fa-user"></i> <?=$info['user_fullname']?></a></li>
+                 <li class="top-header__link"><a href="<?=base_url()?>Destroy"><i class="fa fa-sign-out"></i> Keluar</a></li>
                 <?php } ?> 
               </ul>
             </div>
@@ -60,7 +61,7 @@ function path_members(){
       <div class="container">
         <div class="header-inner">
           <div class="row">
-            <div class="col-sm-3 col-xs-12"> <a href="index.html" class="logo"> <img class="logo__img" src="<?=base_url().'assets/images/'.$info['logo_app'];?>" width="20%" alt="Logo"> </a> </div>
+            <div class="col-sm-3 col-xs-12"> <a href="<?=base_url()?>" class="logo"> <img class="logo__img" src="<?=base_url().'assets/images/'.$info['logo_app'];?>" width="20%" alt="Logo"> </a> </div>
             <div class="col-sm-6 col-xs-12">
               <div class="header-search clearfix">
                 <div class="header-search__filter">

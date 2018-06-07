@@ -62,7 +62,16 @@ class Members extends CI_Controller {
 class Users extends CI_Controller {
 
 	public function __construct() {
-        parent::__construct();
+		parent::__construct();
+		if($a=$this->session->userdata('session_user')){
+            $where = array(
+				'member_id' =>$a,
+				'is_active' =>1
+			);
+			$userInfo=$this->M__db->cek('members__','fullname, photo',$where)->row_array();
+			$this->public_data['info']['user_fullname']=$userInfo['fullname'];
+			$this->public_data['info']['user_photo']=$userInfo['photo'];
+		}
         $select = array('name_app','title_app','logo_app','favicon_app','bg_login','deskripsi_app','timezone_app');
 		$info_web=$this->M__db->get_select('system__',$select)->row_array();
 		$this->public_data['info']['name_app']=$info_web['name_app'];
