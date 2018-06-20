@@ -30,6 +30,10 @@ class M__db extends CI_Model{
 		$query=$this->db->select($select)->where($where)->Order_by($field,$order)->get($table);
 		return $query;
 	}
+	public function get_cek_limit($table,$select,$where,$limit){
+		$query=$this->db->select($select)->where($where)->limit($limit)->get($table);
+		return $query;
+	}
 	public function get_select($table,$select){
 		$this->db->select($select);
 		$query=$this->db->get($table);
