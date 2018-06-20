@@ -7,35 +7,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<span class="panel-title"><?=$title?> Baru</span>
 	</div>
 	<div class="panel-body">
-		<?php if($error=$this->session->flashdata('error')){ ?>
-		<div class="alert alert-danger alert-dark">
-			<button type="button" class="close" data-dismiss="alert">×</button>
-			<strong><i class="fa fa-bell faa-ring animated"></i></strong> &nbsp;<span><?=$error?></span>
-		</div>
-		<?php }
-		if($success=$this->session->flashdata('success')){ ?>
-		<div class="alert alert-success alert-dark">
-			<button type="button" class="close" data-dismiss="alert">×</button>
-			<strong><i class="fa fa-bell faa-ring animated"></i></strong> &nbsp;<span><?=$success?></span>
-		</div>
-		<?php }?>
 		<div class="row form-group">
 			<label class="col-sm-3 control-label">Email <font color="red">*</font> :</label>
 			<div class="col-sm-9">
-				<input type="text" name="name" class="form-control" placeholder="Email Name" autocomplete="off">
+				<input type="text" name="name" class="form-control" placeholder="Email Name" autocomplete="off" required>
 			</div>
 		</div>
 		<div class="row form-group">
 			<label class="col-sm-3 control-label">Subject <font color="red">*</font> :</label>
 			<div class="col-sm-9">
-				<input type="text" name="subject" class="form-control" placeholder="Subjek Email" autocomplete="off">
+				<input type="text" name="subject" class="form-control" placeholder="Subjek Email" autocomplete="off" required>
 			</div>
 		</div>
 
-		<textarea class="form-control summernote-example" name="message" rows="10">
+		<textarea class="form-control summernote-example" name="message" rows="10" required>
 			<center style="width:100%;table-layout:fixed">
 				<div style="max-width:600px">
-					<table style="border-spacing:0;font-family:sans-serif;color:#333333;Margin:0 auto;width:100%;max-width:600px" align="center">
+					<table style="border-spacing:0;font-family:sans-serif;color:#333333;Margin:0 auto;width:100%;max-width:600px; border: 1px solid #BFBFBF; box-shadow: 3px 5px 3px #aaa;" align="center">
 						<tbody>
 							<tr>
 								<td style="background:#42b549"><br></td>
@@ -118,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
 	init.push(function () {
 		$('.datatables').dataTable();
-		$('#datatables_wrapper .table-caption').text('Data Pembayaran');
+		$('#datatables_wrapper .table-caption').text('Konten Email');
 		$('#datatables_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
 	});
 </script>
