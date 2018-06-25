@@ -96,3 +96,7 @@ $route['Beranda'] = 'PublicCTRL/beranda';
  $route['Admin/saveCategory'] = 'CategoryCTRL/saveCategory';
  $route['Admin/updateCategory/:any'] = 'CategoryCTRL/updateCategory';
  $route['Admin/detailCategory/:any'] = 'CategoryCTRL/detailCategory';
+
+ //produk
+
+ // $route['Admin/Product'] = 'ProdukCTRL/getData';

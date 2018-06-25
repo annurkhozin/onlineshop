@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
 	init.push(function () {
 		$('.datatables').dataTable();
-		$('#datatables_wrapper .table-caption').text('Data Pembayaran');
+		$('#datatables_wrapper .table-caption').text('Data Email');
 		$('#datatables_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
 	});
 </script>
