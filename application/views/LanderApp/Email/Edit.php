@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row form-group">
 					<label class="col-sm-2 control-label">Email <font color="red">*</font> :</label>
 					<div class="col-sm-8">
-						<input type="text" name="name" class="form-control" placeholder="Email Name" autocomplete="off" readonly value="<?=$row['name']?>">
+						<input type="text" name="name" class="form-control" placeholder="Email Name" autocomplete="off" readonly value="<?=$row['name']?>" required>
 						<input type="hidden" name="email_id" value="<?=$row['email_id']?>">
 						<input type="hidden" name="action" value="update">
 					</div>
@@ -23,13 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row form-group">
 					<label class="col-sm-2 control-label">Subject <font color="red">*</font> :</label>
 					<div class="col-sm-8">
-						<input type="text" name="subject" class="form-control" placeholder="Subjek Email" autocomplete="off" value="<?=$row['subject']?>">
+						<input type="text" name="subject" class="form-control" placeholder="Subjek Email" autocomplete="off" value="<?=$row['subject']?>" required>
 					</div>
 				</div>
 				<div class="row form-group">
 					<label class="col-sm-2 control-label">Isi Email <font color="red">*</font> :</label>
 					<div class="col-sm-8">
-						<textarea class="form-control" id="summernote-example" name="message" rows="10"><?=$row['message']?></textarea>
+						<textarea class="form-control" id="summernote-example" name="message" rows="10" required><?=$row['message']?></textarea>
 					</div>
 				</div>
 				</div> <!-- / .panel-body -->

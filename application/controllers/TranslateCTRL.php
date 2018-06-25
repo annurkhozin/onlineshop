@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TranslateCTRL extends CI_Controller {
+class TranslateCTRL extends Users {
 /**
   * Create date 19 March 2017 
   * @author	Nur Khozin ==> nurkhozin95@gmail.com
@@ -24,9 +24,11 @@ class TranslateCTRL extends CI_Controller {
 		$this->load->view('LanderApp/'.$template, $data);
 	}
 	public function forgotPassword()	{
-		$this->load->model('EmailConfig'); // load configurations email
+		$this->public_data;
 
-        $this->email->from('1741723012kh@gmail.com', 'Tester');
+        $this->load->model('EmailConfig'); // load configurations email
+		$fromMail = $this->EmailConfig->sendDefault(); // load configurations email
+		$this->email->from($fromMail['smtp_user'], $fromMail['name']);
         $this->email->to('nurkhozin95@gmail.com'); 
 
         $this->email->subject('Email Test');

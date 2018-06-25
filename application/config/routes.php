@@ -62,6 +62,7 @@ $route['Account'] = 'AccountCTRL/dataAkun';
 
 // Raja Ongkir
 $route['getcity'] = 'RajaOngkirCTRL/getcity';
+$route['getcityfirst'] = 'RajaOngkirCTRL/getcityfirst';
 
 // Auth Member
 $route['Register'] = 'AuthCTRL/registerMember';
@@ -104,3 +105,11 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
  $route['Admin/updateCategory/:any'] = 'CategoryCTRL/updateCategory';
  $route['Admin/detailCategory/:any'] = 'CategoryCTRL/detailCategory';
 
+//  Product
+$route['Admin/Product'] = 'ProductCTRL/getData';
+$route['Admin/saveProduct'] = 'ProductCTRL/upload';
+
+
+//  Toko
+$route['Admin/shopInformation'] = 'ShopCTRL/getData';
+$route['Admin/saveShop'] = 'ShopCTRL/upload';

@@ -15,7 +15,7 @@ $timezone;
 	<link rel="icon" type="image/png" href="<?=base_url().'assets/images/'.$info['favicon_app']?>">
 
 	<!-- Open Sans font from Google CDN -->
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&amp;subset=latin" rel="stylesheet" type="text/css">
+	<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&amp;subset=latin" rel="stylesheet" type="text/css"> -->
 
 	<!-- LanderApp's stylesheets -->
 	<link href="<?=path_adm()?>/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -28,6 +28,7 @@ $timezone;
 <body class="theme-default main-menu-animated" id="tooltip">
 <script>var init = [];</script>
 	<script src="<?=path_adm()?>/js/demo.js"></script>
+	
 <div id="main-wrapper">
 	<div id="main-navbar" class="navbar navbar-inverse" role="navigation">
 		<!-- Main menu toggle -->
@@ -37,7 +38,7 @@ $timezone;
 			<div class="navbar-header">
 
 				<!-- Logo -->
-				<a href="<?=base_url()?>Admin/Beranda.cs" class="navbar-brand">
+				<a href="<?=base_url()?>Admin/Beranda" class="navbar-brand">
 					<strong><?=$info['name_app']?></strong>
 				</a>
 				<!-- Main navbar toggle -->
@@ -147,6 +148,27 @@ $timezone;
 		}
 	});
 </script>
+<?php if($error=$this->session->flashdata('error')){ ?>
+    <script>
+		init.push(function () {
+			$.growl.error({ message: '<?=$error?>' });
+		});
+    </script>
+    <?php }
+    if($success=$this->session->flashdata('success')){ ?>
+    <script>
+		init.push(function () {
+			$.growl.notice({ message: '<?=$success?>' });
+		});
+    </script>
+    <?php }
+    if($warning=$this->session->flashdata('warning')){?>
+    <script>
+		init.push(function () {
+			$.growl.warning({ message: '<?=$warning?>' });
+		});
+    </script>
+	<?php }?>
 <script language="JavaScript">
       function show(){
       var Digital=new Date();
