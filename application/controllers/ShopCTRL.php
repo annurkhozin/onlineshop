@@ -14,71 +14,92 @@ class ShopCTRL extends Admins {
 
 	public function saveData(){
 		$this->db->trans_begin();
-		$action = $this->input->post('action');
-		$fileName = str_replace(' ', '_', str_replace('\'', '', $_FILES['file']['name']));
-		$session_user=$this->session->userdata('session_user');	
-		$this->form_validation->set_rules('payment_name','Jenis Akun','trim|required');
-		$this->form_validation->set_rules('payment_account_name','Pemilik Akun','trim|required');
-		$this->form_validation->set_rules('payment_number','Nomor Akun','trim|required');
-		if($action!='update'){
-			if($fileName==null){
-				$this->form_validation->set_rules('file','Logo Pembayaran','trim|required');	
-			}
-		}
-		if($this->form_validation->run()==FALSE){
-			$this->session->set_flashdata('error',validation_errors());
-		}else{
-			$data = array(
-				'payment_name' => $this->input->post('payment_name'),
-				'payment_account_name' => $this->input->post('payment_account_name'),
-				'payment_number' => $this->input->post('payment_number'),
-				'modified_date' => date('Y-m-d H:i:s'),
-				'modified_by' => $session_user
-				);
-			if($fileName!=null){ // ada file
-				$this->load->library('upload');
-				$config['upload_path'] = "./assets/uploads";
-				$config['allowed_types'] = 'gif|jpg|png|jpeg';
-				$config['max_size']	= '1000000';
-				$config['file_name'] =$fileName; 
-				$this->upload->initialize($config);
-				$upload_data = $this->upload->data('file');
-				if (!$this->upload->do_upload("file")){ // gagal upload
-					$this->session->set_flashdata('error','Ada Kesalahan Dalam Upload Logo!');
-				}else{ // berhasil uplaod
-					if($action=='update'){
-						@unlink("./assets/uploads/".$this->input->post('logo_old'));
-						$data += array(
-							'payment_logo' => $fileName,
-							);
-						$where = array(
-							'payment_id' => $this->input->post('payment_id'),
-						);
-						$this->M__db->update('payment__',$where,$data);
-					}else{
-						$data += array(
-							'is_active' => 1,
-							'payment_logo' => $fileName,
-							'created_date' => date('Y-m-d H:i:s'),
-							'created_by' => $session_user
-							);
-						$this->M__db->simpan('payment__',$data);
-					}
-				}
-			}else{ // tidak ada file
-				$where = array(
-					'payment_id' => $this->input->post('payment_id'),
-				);
-				$this->M__db->update('payment__',$where,$data);
-			}
-			if ($this->db->trans_status() === FALSE) {
-				$this->db->trans_rollback();
-				$this->session->set_flashdata('error','Data Pembayaran gagal disimpan');	
+		$this->load->library('upload');
+		$fileNameLogo = str_replace(' ', '_', str_replace('\'', '', $_FILES['logo_app']['name']));
+		$ReplaceFileNameLogo = date('YmdHis').'_'.$fileNameLogo;
+		if($fileNameLogo!=null){ //untuk logo
+			$config['upload_path'] = "./assets/images";
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']	= '1000000';
+			$config['file_name'] =$ReplaceFileNameLogo; 
+			$this->upload->initialize($config);
+			if (!$this->upload->do_upload("logo_app")){
+				$this->session->set_flashdata('error','Ada Kesalahan Dalam Upload Gambar!');
+				redirect(base_url().'Admin/shopInformation');		
 			}else{
-				$this->db->trans_commit();
-				$this->session->set_flashdata('success','Data Pembayaran berhasil disimpan!');	
+				$file_logo = $ReplaceFileNameLogo;
+				@unlink("./assets/images/".$this->input->post('logo_old'));
 			}
+		}else{
+			$file_logo = $this->input->post('logo_old');
 		}
-		redirect(base_url().'Admin/Payment');		
+
+		$fileNameFavicon = str_replace(' ', '_', str_replace('\'', '', $_FILES['favicon_app']['name']));
+		$ReplaceFileNameFavicon = date('YmdHis').'_'.$fileNameFavicon;
+		if($fileNameFavicon!=null){ // untuk Favicon
+			$config['upload_path'] = "./assets/images";
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']	= '1000000';
+			$config['file_name'] =$ReplaceFileNameFavicon; 
+			$this->upload->initialize($config);
+			if (!$this->upload->do_upload("favicon_app")){
+				$this->session->set_flashdata('error','Ada Kesalahan Dalam Upload Gambar!');
+				redirect(base_url().'Admin/shopInformation');		
+			}else{
+				$file_favicon = $ReplaceFileNameFavicon;
+				@unlink("./assets/images/".$this->input->post('favicon_old'));
+			}
+		}else{
+			$file_favicon = $this->input->post('favicon_old');
+		}
+
+		$fileNameBgLogin = str_replace(' ', '_', str_replace('\'', '', $_FILES['bg_login']['name']));
+		$ReplaceFileNameBgLogin = date('YmdHis').'_'.$fileNameBgLogin;
+		if($fileNameBgLogin!=null){ // untuk Bg Login
+			$config['upload_path'] = "./assets/images";
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']	= '1000000';
+			$config['file_name'] =$ReplaceFileNameBgLogin; 
+			$this->upload->initialize($config);
+			if (!$this->upload->do_upload("bg_login")){
+				$this->session->set_flashdata('error','Ada Kesalahan Dalam Upload Gambar!');
+				redirect(base_url().'Admin/shopInformation');		
+			}else{
+				$file_bg_login = $ReplaceFileNameBgLogin;
+				@unlink("./assets/images/".$this->input->post('bg_login_old'));
+			}
+		}else{
+			$file_bg_login = $this->input->post('bg_login_old');
+		}
+
+		$data = array(
+			'name_app' => $this->input->post('name_app'),
+			'address' => $this->input->post('address'),
+			'province_id' => $this->input->post('province_id'),
+			'city_id' => $this->input->post('city_id'),
+			'deskripsi_app' => $this->input->post('deskripsi_app'),
+			'title_app' => $this->input->post('title_app'),
+			'timezone_app' => $this->input->post('timezone_app'),
+			'logo_app' => $file_logo,
+			'bg_login' => $file_bg_login,
+			'favicon_app' => $file_favicon,
+			'modified_date' => date('Y-m-d H:i:s'),
+			'modified_by' => $session_user
+			);
+		$where = array(
+			'id_app' => $this->input->post('id_app'),
+			);
+		$this->M__db->update('system__',$where,$data);
+		if ($this->db->trans_status() === FALSE) {
+			$this->db->trans_rollback();
+			$this->session->set_flashdata('error','Data seminar gagal diedit!');	
+		}else{
+			$this->db->trans_commit();
+			$this->upload->data('logo_app');
+			$this->upload->data('favicon_app');
+			$this->upload->data('bg_login');
+			$this->session->set_flashdata('success','Data seminar berhasil diedit!');
+		}
+		redirect(base_url().'Admin/shopInformation');		
 	}
 }

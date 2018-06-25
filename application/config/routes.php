@@ -112,4 +112,4 @@ $route['Admin/saveProduct'] = 'ProductCTRL/upload';
 
 //  Toko
 $route['Admin/shopInformation'] = 'ShopCTRL/getData';
-$route['Admin/saveShop'] = 'ShopCTRL/upload';
+$route['Admin/saveShop'] = 'ShopCTRL/saveData';
