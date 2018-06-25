@@ -104,6 +104,3 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
  $route['Admin/updateCategory/:any'] = 'CategoryCTRL/updateCategory';
  $route['Admin/detailCategory/:any'] = 'CategoryCTRL/detailCategory';
 
- //produk
-
- // $route['Admin/Product'] = 'ProdukCTRL/getData';
