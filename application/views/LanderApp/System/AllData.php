@@ -61,18 +61,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</tr>
 				<tr>
-					<th>Favicon</th>
-					<td></td>
+					<th>Favicon Toko</th>
+					<td><button type="button" class="btn btn-default btn-rounded faa-parent animated-hover"  data-toggle="modal" data-target="#favicon_app" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat Gambar berita"><i class="fa fa-picture-o faa-vertical"></i> Lihat Gambar</button></td>
+					<div id="favicon_app" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title text-center"><?=$rows['favicon_app']?></h4>
+								</div>
+								<div class="modal-body text-center">
+									<img src="<?=base_url()?>assets/images/<?=$rows['favicon_app']?>" width="80%">
+								</div>
+								<div class="modal-footer text-center">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</tr>
 				<tr>
 					<th>Background Login</th>
-					<td></td>
+					<td><button type="button" class="btn btn-default btn-rounded faa-parent animated-hover"  data-toggle="modal" data-target="#bg_login" data-toggle="tooltip" data-placement="top" title="" data-original-title="Lihat Gambar berita"><i class="fa fa-picture-o faa-vertical"></i> Lihat Gambar</button></td>
+					<div id="bg_login" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4 class="modal-title text-center"><?=$rows['bg_login']?></h4>
+								</div>
+								<div class="modal-body text-center">
+									<img src="<?=base_url()?>assets/images/<?=$rows['bg_login']?>" width="80%">
+								</div>
+								<div class="modal-footer text-center">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
 <!-- Modal -->
+<form class="form-horizontal" action="<?=base_url()?>Admin/saveShop" id="form" method="post" enctype="multipart/form-data">
 <div class="modal fade tambah" tabindex="-1" role="dialog" style="display: none;">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -92,9 +125,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 				<div class="rows form-group">
+					<label class="col-sm-3 control-label"><strong>Alamat Toko<font color="red">*</font> :</strong></label>
+					<div class="col-sm-8">
+						<textarea class="form-control" name="address"><?=$rows['address']?></textarea>
+					</div>
+				</div>
+				<div class="rows form-group">
 					<label class="col-sm-3 control-label"><strong>Provinsi <font color="red">*</font> :</strong></label>
 					<div class="col-sm-8">
-						<select class="form-control" name="propinsi" id="propinsi_asal">
+						<select class="form-control" name="province_id" id="propinsi_asal">
 							<option value="" selected="" disabled="">Pilih Provinsi</option>
 							<?php $this->load->view('rajaongkir/Province.php',$prop); ?>
 						</select>
@@ -103,7 +142,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="rows form-group">
 					<label class="col-sm-3 control-label"><strong>Kota / Kab <font color="red">*</font> :</strong></label>
 					<div class="col-sm-8">
-						<select class="form-control" name="kabupaten" id="origin">
+						<select class="form-control" name="city_id" id="origin">
 							<option value="">Pilih Kota</option>
 						</select>
 					</div>
@@ -115,37 +154,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 				<div class="rows form-group">
+					<label class="col-sm-3 control-label"><strong>Lokasi Server <font color="red">*</font> :</strong></label>
+					<div class="col-sm-8">
+						<input type="text" name="timezone_app" value="<?=$rows['timezone_app']?>" class="form-control" autocomplete="off" required>
+					</div>
+				</div>
+				<div class="rows form-group">
 					<label class="col-sm-3 control-label"><strong>Logo App :</strong></label>
 					<div class="col-sm-8">
 						<input type="file" id="logo_app" class="upload-file" name="logo_app" autocomplete="off" accept="image/*">
+						<input type="hidden" name="logo_old" value="<?=$rows['logo_app']?>">
 					</div>
 				</div>
 				<div class="rows form-group">
 					<label class="col-sm-3 control-label"><strong>Faicon App :</strong></label>
 					<div class="col-sm-8">
 						<input type="file" id="favicon_app" class="upload-file" name="favicon_app" autocomplete="off" accept="image/*">
+						<input type="hidden" name="favicon_old" value="<?=$rows['favicon_app']?>">
 					</div>
 				</div>
 				<div class="rows form-group">
 					<label class="col-sm-3 control-label"><strong>Background Login :</strong></label>
 					<div class="col-sm-8">
 						<input type="file" id="bg_login" class="upload-file" name="bg_login" autocomplete="off" accept="image/*">
+						<input type="hidden" name="bg_login_old" value="<?=$rows['bg_login']?>">
 					</div>
 				</div>
 				<div class="rows form-group">
 					<label class="col-sm-3 control-label"><strong>Deskripsi App <font color="red">*</font> :</strong></label>
 					<div class="col-sm-8">
-					<textarea class="form-control summernote" name="deskripsi_app" id="deskripsi_app" rows="10"><?=$rows['deskripsi_app']?></textarea>
+					<textarea class="form-control summernote" name="deskripsi_app" id="deskripsi_app" rows="3"><?=$rows['deskripsi_app']?></textarea>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<button type="submit" class="btn btn-success btn-rounded faa-parent animated-hover" data-toggle="tooltip" data-placement="top" title="" data-original-title="Simpan Tags Baru" onclick="btnsave()"><i class="fa fa-check faa-vertical"></i> Simpan</button>
 			</div>
 		</div> 
 	</div>
 </div>
+</form>
 <script type="text/javascript">
 init.push(function () {
     $(document).ready(function(){
