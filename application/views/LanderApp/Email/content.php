@@ -82,6 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</table>
 		</div>
 	</div>
+	
 	<div class="panel-footer">
 		<div class="text-center">Keterangan : 
 			<button class="btn btn-default btn-sm btn-outline faa-parent animated-hover"  data-toggle="tooltip" data-placement="top" title="" data-loading-text="Loading..." data-original-title="Detail Data"><i class="fa fa-eye faa-vertical"></i> Detail Data</button>

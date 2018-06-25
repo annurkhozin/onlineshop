@@ -37,13 +37,13 @@ $modified_by=$this->M__db->cek('users__','fullname',$where2)->row_array();
 				<?php $category = $this->M__db->get_select('category__','category_id,category_name')->result();?>
 				<select name="sub_category" class="form-control">
 					<?php if($sub_category['category_id']==0){ ?>
-						<option value="0">Tidak ada</option>
+					<!-- 	<option value="0">Tidak ada</option> -->
 					<?php }else{?>
 						<option value="<?=$sub_category['category_id']?>"><?=$sub_category['category_name']?></option>
 					<?php }
 
 					?>
-					<option value="0">Tidak ada</option>
+					<!-- <option value="0">Tidak ada</option> -->
 					<?php foreach ($category as $key) { ?>
 						<option value="<?=$key->category_id;?>"><?=$key->category_name;?></option>
 					<?php } ?>
