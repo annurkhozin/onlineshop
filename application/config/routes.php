@@ -56,18 +56,25 @@ $route['translate_uri_dashes'] = FALSE;
 $route['Translate'] = 'TranslateCTRL';
 
 
-// Auth
-$route['Login'] = 'AuthCTRL/login';
-$route['cekLogin'] = 'AuthCTRL/prosesLogin';
-$route['Destroy'] = 'AuthCTRL/deleteSession';
-
-
 // Member
 $route['Beranda'] = 'PublicCTRL/beranda';
+$route['Account'] = 'AccountCTRL/dataAkun';
+
+// Raja Ongkir
+$route['getcity'] = 'RajaOngkirCTRL/getcity';
+
+// Auth Member
+$route['Register'] = 'AuthCTRL/registerMember';
+$route['prosesRegister'] = 'AuthCTRL/prosesRegister';
+$route['Verifikasi/:any'] = 'AuthCTRL/verifikasiAkun';
+$route['prosesLogin'] = 'AuthCTRL/prosesLoginMember';
 
 
 
-
+// Auth Admin
+$route['LogiN'] = 'AuthCTRL/login';
+$route['cekLogin'] = 'AuthCTRL/prosesLogin';
+$route['Destroy'] = 'AuthCTRL/deleteSession';
 
 
  // Admin

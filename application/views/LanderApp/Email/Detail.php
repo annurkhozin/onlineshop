@@ -12,9 +12,6 @@ $modified_by=$this->M__db->cek('users__','fullname',$where2)->row_array();
 ?>
 <div class="panel-group" id="accordion-example">
 	<div class="panel">
-		<button class="col-sm-12" onclick="loadEdit()">Data Verifikasi Email</button>
-	</div> <!-- / .panel -->
-	<div class="panel">
 		<div class="panel-heading">
 			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-example" href="#Edit">
 				Detail Data Email

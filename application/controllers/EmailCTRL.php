@@ -66,10 +66,8 @@ class EmailCTRL extends Admins {
 				$this->session->set_flashdata('errorMail','Gagal mengirim, Pastikan konfigurasi Email sudah benar');		
 				// show_error($this->email->print_debugger());
 			}else{  
-				echo 'Success to send email';   
+				$this->session->set_flashdata('successMail','Sukses mengirim Email ke '.$this->input->post('emailto'));	
 			}  
-			
-			$this->session->set_flashdata('successMail','Sukses mengirim Email ke '.$this->input->post('emailto'));			
 		}
 		redirect(base_url().'Admin/Email');
 	}

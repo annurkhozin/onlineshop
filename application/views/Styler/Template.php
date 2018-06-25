@@ -13,7 +13,8 @@ function path_members(){
 	<link rel="icon" type="image/png" href="<?=base_url().'assets/images/'.$info['favicon_app']?>">
 <link href="<?=path_members()?>/css/master.css" rel="stylesheet">
 <script src="<?=path_members()?>/plugins/jquery/jquery-1.11.3.min.js"></script>
-
+<script src="<?=base_url()?>assets/growl/js/jquery.growl.js" type="text/javascript"></script>
+<link href="<?=base_url()?>assets/growl/css/jquery.growl.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -21,16 +22,35 @@ function path_members(){
 <div id="page-preloader"><span class="spinner"></span></div>
 <!-- Loader end -->
 <div class="layout-theme animated-css "  data-header="sticky" data-header-top="200"  > 
-   
+<?php if($error=$this->session->flashdata('error')){ ?>
+    <script>
+      $.growl.error({ message: '<?=$error?>' });
+    </script>
+    <?php }
+    if($success=$this->session->flashdata('success')){ ?>
+    <script>
+      $.growl.notice({ message: '<?=$success?>' });
+    </script>
+    <?php }
+    if($warning=$this->session->flashdata('warning')){?>
+    <script>
+      $.growl.warning({ message: '<?=$warning?>' });
+    </script>
+    <?php }?>
   <div id="wrapper">
     <header class="header">
       <div class="top-header">
         <div class="container">
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
               <ul class="top-header__links list-unstyled">
-                <li class="top-header__link"><a href="javascript:void(0);">DAFTAR</a></li>
-                <li class="top-header__link"><a href="javascript:void(0);">MASUK</a></li>
+                <?php if((!$this->session->userdata('session_user')) or ($this->session->userdata('level_user')!=0)){ ?>
+                <li class="top-header__link"><a href="<?=base_url()?>Register"><i class="fa fa-sign-in"></i> MASUK</a></li>
+                <li class="top-header__link"><a href="<?=base_url()?>Register"><i class="fa fa-user-plus"></i> DAFTAR</a></li>
+                <?php }else{ ?>
+                  <li class="top-header__link"><a href="#"><i class="fa fa-user"></i> <?=$info['user_fullname']?></a></li>
+                 <li class="top-header__link"><a href="<?=base_url()?>Destroy"><i class="fa fa-sign-out"></i> Keluar</a></li>
+                <?php } ?> 
               </ul>
             </div>
           </div>
@@ -41,7 +61,7 @@ function path_members(){
       <div class="container">
         <div class="header-inner">
           <div class="row">
-            <div class="col-sm-3 col-xs-12"> <a href="index.html" class="logo"> <img class="logo__img" src="<?=base_url().'assets/images/'.$info['logo_app'];?>" width="20%" alt="Logo"> </a> </div>
+            <div class="col-sm-3 col-xs-12"> <a href="<?=base_url()?>" class="logo"> <img class="logo__img" src="<?=base_url().'assets/images/'.$info['logo_app'];?>" width="20%" alt="Logo"> </a> </div>
             <div class="col-sm-6 col-xs-12">
               <div class="header-search clearfix">
                 <div class="header-search__filter">
@@ -91,7 +111,8 @@ function path_members(){
             <div class="navbar yamm">
               <div class="navbar-header hidden-md  hidden-lg  hidden-sm">
                 <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                <a href="javascript:void(0);" class="navbar-brand">Menu</a> </div>
+                <a href="javascript:void(0);" class="navbar-brand">Menu</a>
+              </div>
               <div id="navbar-collapse-1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <li><a href="javascript:void(0);">Beranda</a></li>
