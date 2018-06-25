@@ -7,32 +7,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<span class="panel-title"><?=$title?> Baru</span>
 	</div>
 	<div class="panel-body">
-		<?php if($error=$this->session->flashdata('error')){ ?>
-		<div class="alert alert-danger alert-dark">
-			<button type="button" class="close" data-dismiss="alert">×</button>
-			<strong><i class="fa fa-bell faa-ring animated"></i></strong> &nbsp;<span><?=$error?></span>
-		</div>
-		<?php }
-		if($success=$this->session->flashdata('success')){ ?>
-		<div class="alert alert-success alert-dark">
-			<button type="button" class="close" data-dismiss="alert">×</button>
-			<strong><i class="fa fa-bell faa-ring animated"></i></strong> &nbsp;<span><?=$success?></span>
-		</div>
-		<?php }?>
 		<div class="row form-group">
 			<label class="col-sm-3 control-label">Email <font color="red">*</font> :</label>
 			<div class="col-sm-9">
-				<input type="text" name="name" class="form-control" placeholder="Email Name" autocomplete="off">
+				<input type="text" name="name" class="form-control" placeholder="Email Name" autocomplete="off" required>
 			</div>
 		</div>
 		<div class="row form-group">
 			<label class="col-sm-3 control-label">Subject <font color="red">*</font> :</label>
 			<div class="col-sm-9">
-				<input type="text" name="subject" class="form-control" placeholder="Subjek Email" autocomplete="off">
+				<input type="text" name="subject" class="form-control" placeholder="Subjek Email" autocomplete="off" required>
 			</div>
 		</div>
 
-		<textarea class="form-control summernote-example" name="message" rows="10">Tulis Email...</textarea>
+		<textarea class="form-control summernote-example" name="message" rows="10" required>
+			<center style="width:100%;table-layout:fixed">
+				<div style="max-width:600px">
+					<table style="border-spacing:0;font-family:sans-serif;color:#333333;Margin:0 auto;width:100%;max-width:600px; border: 1px solid #BFBFBF; box-shadow: 3px 5px 3px #aaa;" align="center">
+						<tbody>
+							<tr>
+								<td style="background:#42b549"><br></td>
+							</tr>
+							<tr>
+								<td style="background-color:#ffffff;padding-top:10px;padding-bottom:10px;padding-right:20px;padding-left:20px;width:100%;text-align:left;color:#333333;font-size:14px">Hai {$name_user},<br><div><br></div><div>Isi pesan email disini...<br></div><div><br></div><div>Salam.</div>{$name_system}<br><br><br></td>
+							</tr>
+							<tr>
+								<td style="background-color: rgb(255, 255, 255); padding: 10px 20px; width: 100%; text-align: center; color: rgb(51, 51, 51); font-size: 12px;">© 2018 {$name_system}<br></td>
+							</tr><tr>
+								<td style="background:#42b549"><br></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</center>
+		</textarea>
 	</div>
 	<div class="panel-footer text-center">
 		<button class="btn btn-success btn-rounded faa-parent animated-hover" data-toggle="tooltip" data-placement="top" title="" data-original-title="Simpan <?=$title?> Baru" onclick="btnSave()"><i class="fa fa-plus faa-vertical"></i> Simpan</button>
@@ -74,6 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</table>
 		</div>
 	</div>
+	
 	<div class="panel-footer">
 		<div class="text-center">Keterangan : 
 			<button class="btn btn-default btn-sm btn-outline faa-parent animated-hover"  data-toggle="tooltip" data-placement="top" title="" data-loading-text="Loading..." data-original-title="Detail Data"><i class="fa fa-eye faa-vertical"></i> Detail Data</button>
@@ -98,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
 	init.push(function () {
 		$('.datatables').dataTable();
-		$('#datatables_wrapper .table-caption').text('Data Email');
+		$('#datatables_wrapper .table-caption').text('Konten Email');
 		$('#datatables_wrapper .dataTables_filter input').attr('placeholder', 'Search...');
 	});
 </script>
