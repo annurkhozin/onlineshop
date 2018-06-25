@@ -2,18 +2,19 @@
   <div class="row">
     <div class="col-md-3">
       <aside class="sidebar">
-        <section class="widget widget-category widget-category_mod-a wow bounceInLeft" data-wow-duration="2s">
-          <h3 class="widget-title ui-title-block ui-title-block_small"><i class="icon fa fa-bars"></i>CATEGORIES</h3>
+        <section class="widget widget-category widget-category_mod-a wow bounceInLeft" data-wow-duration="1s">
+          <h3 class="widget-title ui-title-block ui-title-block_small"><i class="icon fa fa-bars"></i>KATEGORI</h3>
           <div class="block_content">
             <ul class="list-categories list list-links">
-              <li class="list-categories__item"> <a class="list-sidebar__link" href="javascript:void(0);"> <span class="list-categories__name">T-SHIRTS & APPAREL</span> <span class="list-categories__amout">(23)</span> </a> </li>
-              <li class="list-categories__item"> <a class="list-sidebar__link" href="javascript:void(0);"> <span class="list-categories__name">ELECTRONICS & GADGETS</span> <span class="list-categories__amout">(23)</span> </a> </li>
-              <li class="list-categories__item"> <a class="list-sidebar__link" href="javascript:void(0);"> <span class="list-categories__name">TOOLS & OUTDOORS</span> <span class="list-categories__amout">(23)</span> </a> </li>
-              <li class="list-categories__item"> <a class="list-sidebar__link" href="javascript:void(0);"> <span class="list-categories__name">ELECTRONICS & GADGETS</span> <span class="list-categories__amout">(23)</span> </a> </li>
-              <li class="list-categories__item"> <a class="list-sidebar__link" href="javascript:void(0);"> <span class="list-categories__name">LIGHTS & LASERS</span> <span class="list-categories__amout">(23)</span> </a> </li>
-              <li class="list-categories__item"> <a class="list-sidebar__link" href="javascript:void(0);"> <span class="list-categories__name">HOODIES & JACKETS</span> <span class="list-categories__amout">(23)</span> </a> </li>
-              <li class="list-categories__item"> <a class="list-sidebar__link" href="javascript:void(0);"> <span class="list-categories__name">SMARTPHONE & TABLETS</span> <span class="list-categories__amout">(23)</span> </a> </li>
-              <li class="list-categories__item"> <a class="list-sidebar__link" href="javascript:void(0);"> <span class="list-categories__name">KIDS TOYS</span> <span class="list-categories__amout">(23)</span> </a> </li>
+            <?php $where  = array(
+                'sub_category' => 0,
+                'is_active' => 1 
+              );
+              $menuCategory = $this->M__db->get_cek_limit('category__','category_id, category_name',$where,9)->result();
+              foreach ($menuCategory as $key) { ?>
+                <li class="list-categories__item"> <a class="list-sidebar__link" href="<?=base_url().'Category/'.paramEncrypt($key->category_id)?>"> <span class="list-categories__name"><?=strtoupper($key->category_name)?></span> </a> </li>
+              <?php }
+              ?>
             </ul>
           </div>
         </section>

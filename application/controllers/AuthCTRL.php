@@ -130,10 +130,10 @@ class AuthCTRL extends Users {
 					);
 				$add=$this->M__db->cek('addressMembers__','*',$where);
 				if($add->num_rows()>0){
-					$this->session->set_flashdata('success','Berhasil Masuk dengan akun '.$this->input->post('username'));			
+					$this->session->set_flashdata('success','Berhasil Masuk dengan akun '.$hasil_row['fullname']);			
 					redirect(base_url());
 				}else{
-					$this->session->set_flashdata('success','Berhasil Masuk dengan akun '.$this->input->post('username'));			
+					$this->session->set_flashdata('success','Berhasil Masuk dengan akun '.$hasil_row['fullname']);			
 					$this->session->set_flashdata('warning','Mohon Melengkapi akun anda');	
 					redirect(base_url().'Account');				
 				}
@@ -165,6 +165,7 @@ class AuthCTRL extends Users {
 				"level_user"=> 1
 			);
 			$this->session->set_userdata($data);
+			$this->session->set_flashdata('success','Selamat Datang '.$hasil_row['fullname']);
 			redirect(base_url().'Admin/Beranda');
 		}else{
 			$this->session->set_flashdata('error','Username / password tidak sesuai!');	
@@ -175,6 +176,7 @@ class AuthCTRL extends Users {
 	public function deleteSession(){
 		$this->session->unset_userdata('session_user');
 		$this->session->unset_userdata('level_user');
+		$this->session->set_flashdata('warning','Silahkan masuk dengan akun anda terlebih dahulu!');			
 		redirect (base_url());
 	}
 }

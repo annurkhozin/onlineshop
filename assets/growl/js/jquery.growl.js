@@ -257,7 +257,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     Growl.settings = {
       namespace: 'growl',
-      duration: 3200,
+      duration: 10000,
       close: "&#215;",
       location: "default",
       style: "default",

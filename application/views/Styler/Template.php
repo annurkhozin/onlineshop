@@ -129,7 +129,7 @@ function path_members(){
 				include $content;
 			} 
 		?>
-    <footer class="footer footer_mod-a wow bounceInUp" data-wow-duration="2s">
+    <footer class="footer footer_mod-a wow bounceInUp" data-wow-duration="1s">
       <div class="footer-top">
         <div class="container">
           <div class="row">
