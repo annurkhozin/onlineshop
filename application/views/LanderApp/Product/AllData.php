@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="row form-group">
 					<label class="col-sm-2 control-label">Harga <font color="red">*</font> :</label>
 					<div class="col-sm-9">
-						<input type="text" name="price" class="form-control" placeholder="Harga produk" autocomplete="off">
+						<input type="number" name="price" class="form-control" placeholder="Harga produk" autocomplete="off">
 					</div>
 				</div>
 				<div class="row form-group">
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 				<div class="row form-group">
-					<label class="col-sm-2 control-label">Logo <font color="red">*</font> :</label>
+					<label class="col-sm-2 control-label">Gambar Produk :</label>
 					<div class="col-sm-7">
 						<input type="file" name="images[]" class="form-control upload-file" autocomplete="off"  accept="image/*">
 					</div>

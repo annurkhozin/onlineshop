@@ -103,4 +103,27 @@ class ProductCTRL extends Admins {
 		redirect(base_url().'Admin/Product');		
 	}
 	
+	public function updateStatus(){
+		$this->db->trans_begin();
+		$where = array(
+			'product_id' => $this->uri->segment(3)
+			);
+		$data = array(
+			'is_active' => $this->uri->segment(4),
+			'modified_date' => date('Y-m-d H:i:s'),
+			'modified_by' => $this->session->userdata('session_user')
+			);
+		
+		$this->M__db->update('product__',$where,$data);
+		if($this->uri->segment(4)==1){ $ms='aktifkan';}else{ $ms='nonaktifkan';}
+		if ($this->db->trans_status() === FALSE) {
+			$this->db->trans_rollback();
+			$this->session->set_flashdata('error','Status Produk gagal di'.$ms.'!');	
+		}else{
+			$this->db->trans_commit();
+			$this->session->set_flashdata('success','Status Porduk berhasil di'.$ms.'!');	
+		}
+		redirect('Admin/Product');
+
+	}
 }
