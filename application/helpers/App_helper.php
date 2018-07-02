@@ -15,3 +15,7 @@ function select($i,$j){
 		return "selected";
 	}
 }
+
+function currency($number) {
+	return 'Rp '.number_format($number,2,',','.');
+}
