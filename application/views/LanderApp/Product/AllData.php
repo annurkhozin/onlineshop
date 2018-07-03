@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="panel">
 	<div class="panel-heading">
-		<button class="btn btn-success btn-lg btn-outline faa-parent animated-hover"  data-toggle="modal" data-target=".modalTambah" data-placement="top" title="" data-loading-text="Loading..." ><i class="fa fa-plus faa-vertical"></i> Produk</button>
+		<h4><?=$title?> <button class="btn btn-success btn-outline faa-parent animated-hover"  data-toggle="modal" data-target=".modalTambah" data-placement="top" title="" data-loading-text="Loading..." ><i class="fa fa-plus faa-vertical"></i> Produk</button></h4>
 	</div>
 	<div class="panel-body">
 		<div class="table-Light">
@@ -92,6 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<th>Nama Produk</th>
 						<th>Kategori</th>
 						<th>Harga</th>
+						<th>Stok</th>
 						<th>Status</th>
 						<th class="text-center">Opsi</th>
 					</tr>
@@ -104,6 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td><?=$row->product_name?></td>
 						<td><?=$kategori['category_name']?></td>
 						<td><?=currency($row->price)?></td>
+						<td><?=$row->stock?></td>
 						<td class="text-center">
 							<?php if($row->is_active==1){ ?>
 								<a href="<?=base_url().'Admin/statusProduct/'.$row->product_id.'/0'?>" class="label label-info">Aktif</a>
@@ -112,8 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php }?>
 						</td>
 						<td class="text-center" style="width: 30%;">
-							<button class="btn btn-default btn-sm btn-outline faa-parent animated-hover"  data-toggle="tooltip" data-placement="top" title="" data-loading-text="Loading..."  data-original-title="Detail <?=$row->product_name?>"><i class="fa fa-eye faa-vertical"></i></button>
-							<button class="btn btn-success btn-sm btn-outline faa-parent animated-hover"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit <?=$row->product_name?>"><i class="fa fa-edit faa-vertical"></i></button>							
+							<a href="<?=base_url().'Admin/formProduct/'.paramEncrypt($row->product_id)?>" class="btn btn-success btn-sm btn-outline faa-parent animated-hover"  data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit <?=$row->product_name?>"><i class="fa fa-edit faa-vertical"></i></a>							
 						</td>
 					</tr>
 				<?php $no++; }?>

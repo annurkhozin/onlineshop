@@ -109,6 +109,8 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
  $route['Admin/Product'] = 'ProductCTRL/getData';
  $route['Admin/saveProduct'] = 'ProductCTRL/saveData';
  $route['Admin/statusProduct/:any/:any'] = 'ProductCTRL/updateStatus';
+ $route['Admin/formProduct/:any'] = 'ProductCTRL/formData';
+ $route['Admin/imagesProduct/:any/:any'] = 'ProductCTRL/imagesProduct';
 
 
 //  Toko

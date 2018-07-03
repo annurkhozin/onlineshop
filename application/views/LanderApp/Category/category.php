@@ -26,17 +26,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<tr>
 						<th>Id Kategori</th>
 						<th>Kategori</th>
-						<th>Sub Kategori</th>
+						<th>Sub Kategori dari</th>
 						<th>Status</th>
 						<th class="text-center">Opsi</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php $no=1; foreach($allData->result() as $row){ ?>
+					<?php $no=1; foreach($allData->result() as $row){
+						$kategori = $this->db->where('category_id', $row->sub_category)->get('category__')->row_array()?>
 					<tr class="odd gradeX">
 						<td><?=$no?></td>
 						<td><?=$row->category_name?></td> 
-						<td><?=$row->sub_category?></td> 
+						<td><?php  if($kategori){ echo $kategori['category_name'];}else{ echo 'Tidak ada';}?></td>
 						<td class="text-center">
 							<?php if($row->is_active==1){ ?>
 								<a href="<?=base_url().'Admin/statusCategory/'.$row->category_id.'/0'?>" class="label label-info">Aktif</a>
