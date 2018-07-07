@@ -116,3 +116,10 @@ $route['Destroy'] = 'AuthCTRL/deleteSession';
 //  Toko
 $route['Admin/shopInformation'] = 'ShopCTRL/getData';
 $route['Admin/saveShop'] = 'ShopCTRL/saveData';
+
+//Contact
+$route['Admin/contact'] = 'ContactCTRL/getData';
+$route['Admin/getAllContact'] = 'ContactCTRL/getAllContact';
+$route['Admin/addContact'] = 'ContactCTRL/addContact';
+$route['Admin/deleteContact'] = 'ContactCTRL/deleteContact';
+$route['Admin/updateContact'] = 'ContactCTRL/updateContact';
