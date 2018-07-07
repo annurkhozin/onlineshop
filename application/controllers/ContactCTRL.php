@@ -8,8 +8,8 @@ class ContactCTRL extends Admins {
     public function getData()
     {
         $data   = $this->public_data;
-        $data['title']='Category Produk'; //wajib
-        $data['currentPage']='category'; // wajib
+        $data['title']='Contact Person'; //wajib
+        $data['currentPage']='contact'; // wajib
         $data['content']='Contact/contact.php';// view wajib
 
         $this->load->view('LanderApp/Template', $data); // wajib

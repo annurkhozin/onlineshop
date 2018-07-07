@@ -123,3 +123,7 @@ $route['Admin/getAllContact'] = 'ContactCTRL/getAllContact';
 $route['Admin/addContact'] = 'ContactCTRL/addContact';
 $route['Admin/deleteContact'] = 'ContactCTRL/deleteContact';
 $route['Admin/updateContact'] = 'ContactCTRL/updateContact';
+
+// User 
+$route['Admin/user'] = 'UserCTRL/getData';
+$route['Admin/statusUser/:any/:any'] = 'UserCTRL/updateStatus';
