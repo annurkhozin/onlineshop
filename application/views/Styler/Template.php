@@ -148,9 +148,37 @@ function path_members(){
               </div>
             </div>
             <div class="col-md-2">
-              <h3 class="footer-title">INFORMATION</h3>
+              <h3 class="footer-title">Contact</h3>
               <ul class="footer-list">
-                
+                <?php $contact = $this->db->get('contact__');
+                foreach($contact->result() as $row){ ?>
+                <table width="100%">
+                    <tr>
+                        <th><?=$row->aplikasi.' - '.$row->number;?></th>
+                    </tr>
+                    <tr><td colspan="2">
+                        <hr style="border-top: 1px dashed #8c8b8b;"></td></tr>
+                <?php }?>
+              </table>
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <h3 class="footer-title">Rekening Bank</h3>
+              <ul class="footer-list">
+                <?php $payment = $this->db->where('is_active',1)->get('payment__');
+                foreach($payment->result() as $row){ ?>
+                <table width="100%">
+                    <tr>
+                        <td rowspan="2" width="40%"><img src="<?=base_url().'assets/uploads/'.$row->payment_logo?>" width="90%" alt=""></td>
+                        <th><?=$row->payment_number;?></th>
+                    </tr>
+                    <tr>
+                        <td>[ <?=$row->payment_account_name;?> ]</td>
+                    </tr>
+                    <tr><td colspan="2">
+                        <hr style="border-top: 1px dashed #8c8b8b;"></td></tr>
+                <?php }?>
+                </table>
               </ul>
             </div>
           </div>

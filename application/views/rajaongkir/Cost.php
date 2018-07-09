@@ -48,7 +48,7 @@ if ($err) {
 			 for ($l=0; $l < count($data['rajaongkir']['results'][$k]['costs']); $l++) {			 
 			 ?>
 			 <tr>
-				 <td><input type="radio" onclik="jumlahBayar(<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?>)"></td>
+				 <td><input type="radio" name='jumlahBayar' onclick="jumlahBayar(<?=$data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']?>)"></td>
 				 <td><?php echo $l+1;?></td>
 				 <td>
 					 <div style="font:bold 16px Arial"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?></div>
@@ -61,6 +61,23 @@ if ($err) {
 			 }
 			 ?>
 		 </table>
+		 <script>
+                  function jumlahBayar(cost){
+                    var price = '<?php echo $this->cart->total()?>';
+                    var total = parseInt(price) + parseInt(cost);
+                    $('.totalBayar').val(total);
+										var DecimalSeparator = Number("1.2").toLocaleString().substr(1,1);
+
+										var AmountWithCommas = total.toLocaleString();
+										var arParts = String(AmountWithCommas).split(DecimalSeparator);
+										var intPart = arParts[0];
+										var decPart = (arParts.length > 1 ? arParts[1] : '');
+										decPart = (decPart + '00').substr(0,2);
+
+										var	bayar = 'Rp ' + intPart + DecimalSeparator + decPart;
+										$('.totalBayarText').text(bayar);
+                  }
+                </script>
 	 </div>
  <?php
  }

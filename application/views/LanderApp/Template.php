@@ -50,6 +50,9 @@ $timezone;
 				<div>
 					<ul class="nav navbar-nav">
 						<li>
+							<a href="<?=base_url()?>" target="blank_"><i class="fa fa-desktop"></i> Halaman Depan</b></a>
+						</li>
+						<li>
 							<a href="#"><i class="fa fa-map-marker"></i> Server Time Zone <b><?php $zone = explode('/',$info['timezone']); echo $zone[1]?></b></a>
 						</li>
 						<li>

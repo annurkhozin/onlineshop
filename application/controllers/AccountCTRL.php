@@ -75,4 +75,16 @@ class AccountCTRL extends Members {
 		}
 		redirect(base_url());
 	}
+
+	public function downloadPayment(){
+		$this->load->library('pdf');
+		$data	= $this->public_data;
+		$data['title']='Checkout';
+		$where = array(
+			'member_id' => $this->session->userdata('session_user'),
+			);
+		$data['akun'] = $this->M__db->cek('members__','*',$where)->row_array();
+		$data['content']='Member/viewCheckout.php';
+		$this->pdf->load_view('Styler/Template', $data);
+	}
 }

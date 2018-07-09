@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -8,7 +7,6 @@
           <tbody>
             <tr>
               <td><?=$akun['fullname']?></td>
-              <td>Plih Ekpedisi Pengiriman</td>
             </tr>
             <tr>
               <td><?=$akun['email'].' , Telp. '.$akun['phone']?></td>
@@ -73,9 +71,10 @@
                 </select>
               </td>
               <td>
+                <?php $city = $this->db->select('city_id')->get('system__')->row_array()?>
                 <script>
                     function tampil_data(act){
-                        var w = '<?php echo $akun['city_id']?>';
+                        var w = '<?php echo $city['city_id']?>';
                         var x = '<?php echo $akun['city_id']?>';
                         var y = '<?php echo array_sum($berat)?>';
                         var z = $('#courier').val();
@@ -98,7 +97,9 @@
             <tr>
               <th colspan="2" style="text-align:right;">Total Harga Barang</th>
               <td>&nbsp;</th>
-              <th><?=currency($this->cart->total()); ?></th>
+              <th>
+                <input type="hidden" name="totalBayar" class="totalBayar">
+                <span class="totalBayarText"><?=currency($this->cart->total()); ?></span></th>
             </tr>
           </tfoot>
         </table>
