@@ -1,15 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 function path_members(){
-		echo base_url()."assets/Styler";
-	}
+  echo base_url()."assets/Styler";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-<title><?=$title.' | '.$info['title_app']?></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+  <title><?=$title.' | '.$info['title_app']?></title>
 	<link rel="icon" type="image/png" href="<?=base_url().'assets/images/'.$info['favicon_app']?>">
 <link href="<?=path_members()?>/css/master.css" rel="stylesheet">
 <script src="<?=path_members()?>/plugins/jquery/jquery-1.11.3.min.js"></script>
@@ -48,7 +48,7 @@ function path_members(){
                 <li class="top-header__link"><a href="<?=base_url()?>Register"><i class="fa fa-sign-in"></i> MASUK</a></li>
                 <li class="top-header__link"><a href="<?=base_url()?>Register"><i class="fa fa-user-plus"></i> DAFTAR</a></li>
                 <?php }else{ ?>
-                  <li class="top-header__link"><a href="#"><i class="fa fa-user"></i> <?=$info['user_fullname']?></a></li>
+                  <li class="top-header__link"><a href="<?=base_url().'Account'?>"><i class="fa fa-user"></i> <?=$info['user_fullname']?></a></li>
                  <li class="top-header__link"><a href="<?=base_url()?>Destroy"><i class="fa fa-sign-out"></i> Keluar</a></li>
                 <?php } ?> 
               </ul>
@@ -84,18 +84,26 @@ function path_members(){
             
             <div class="col-sm-3 col-xs-12">
               <div class="header-cart">
-                <div class="header-cart__preview"> <span class="icon fa fa-shopping-cart color_primary" aria-hidden="true"></span> <span class="header-cart__inner"> <span class="header-cart__qty">keranjang: <span class="color_primary">(10)</span></span> <span class="header-cart__amount">TOTAL: <span class="color_primary">90.000</span></span> </span> <i class="caret"></i> </div>
+                <div class="header-cart__preview"> <span class="icon fa fa-shopping-cart color_primary" aria-hidden="true"></span> <span class="header-cart__inner"> <span class="header-cart__qty">keranjang</span> <span class="header-cart__amount">TOTAL: <span class="color_primary"><?=currency($this->cart->total()); ?></span></span> </span> <i class="caret"></i> </div>
                 <div class="header-cart__product">
                   <h3 class="header-cart__title">Keranjang Belanja</h3>
                   <ul class="product-list list-unstyled">
-                    <li class="product-list__item clearfix"> <a class="product-list__img" href="javascript:void(0);"><img class="img-responsive" src="<?=path_members()?>/media/cart-details/1.jpg" alt="Product"></a>
+                    <?php $jumlah=array();
+                      foreach ($this->cart->contents() as $items): 
+                          $jumlah[]=$items['price'];
+                      ?>
+                    <li class="product-list__item clearfix">
+                      <a class="product-list__img" href="javascript:void(0);"><img class="img-responsive" src="<?=base_url().'assets/uploads/product/'.$items['picture']?>" alt="Product"></a>
                       <div class="product-list__inner">
-                        <h4 class="product-list__name"><a class="product-list__link" href="javascript:void(0);"><span class="product-list__model">Elekta 50” LED </span>3D TV</a></h4>
-                        <span class="product-list__price">9000</span> </div>
-                      <i class="product-list__del icon icon-trash color_primary"></i> </li>
+                        <h4 class="product-list__name"><a class="product-list__link" href="<?=base_url().'detailProduct/'.paramEncrypt($items['product_id']);?>"><span class="product-list__model"><?='( '.$items['qty'].' ) item<br>'.$items['name'] ?></a></h4>
+                        <span class="product-list__price"><?=currency($items['subtotal']); ?></span> </div>
+                      <a href="<?=base_url().'deleteKeranjang/'.$items['rowid']?>"><i class="product-list__del icon icon-trash color_primary"></i></a>
+                    </li>
+                    <?php endforeach; ?>
                   </ul>
-                  <div class="product-list__total">Subtotal:<span class="product-list__total_price">90.000</span></div>
-                  <div class="header-cart__buttons clearfix"> <a class="ui-btn ui-btn_default" href="javascript:void(0);">View Cart</a> <a class="ui-btn ui-btn_primary" href="javascript:void(0);">Checkout</a> </div>
+                  <div class="product-list__total">Subtotal:<span class="product-list__total_price"><?=currency($this->cart->total()); ?></span></div>
+                  <div class="header-cart__buttons clearfix"> <a class="ui-btn ui-btn_danger" href="javascript:void(0);">Keranjang</a> <a class="ui-btn ui-btn_primary" href="<?=base_url().'viewCheckout'?>">Checkout</a> </div>
+                  <div class="text-center"><br><br><a href="<?=base_url().'kosongkanKeranjang';?>">Kosongkan keranjang</a></div>
                 </div>
               </div>
             </div>
@@ -115,9 +123,9 @@ function path_members(){
               </div>
               <div id="navbar-collapse-1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  <li><a href="javascript:void(0);">Beranda</a></li>
-                  <li> <a href="about.html"> Tentang Kami</a> </li>
-                  <li> <a href="contact.html">Kontak</a> </li>
+                  <li><a href="<?=base_url()?>">Beranda</a></li>
+                  <li> <a href="<?=base_url()?>"> Tentang Kami</a> </li>
+                  <li> <a href="<?=base_url()?>">Kontak</a> </li>
                 </ul>
               </div>
             </div>
@@ -140,9 +148,37 @@ function path_members(){
               </div>
             </div>
             <div class="col-md-2">
-              <h3 class="footer-title">INFORMATION</h3>
+              <h3 class="footer-title">Contact</h3>
               <ul class="footer-list">
-                
+                <?php $contact = $this->db->get('contact__');
+                foreach($contact->result() as $row){ ?>
+                <table width="100%">
+                    <tr>
+                        <th><?=$row->aplikasi.' - '.$row->number;?></th>
+                    </tr>
+                    <tr><td colspan="2">
+                        <hr style="border-top: 1px dashed #8c8b8b;"></td></tr>
+                <?php }?>
+              </table>
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <h3 class="footer-title">Rekening Bank</h3>
+              <ul class="footer-list">
+                <?php $payment = $this->db->where('is_active',1)->get('payment__');
+                foreach($payment->result() as $row){ ?>
+                <table width="100%">
+                    <tr>
+                        <td rowspan="2" width="40%"><img src="<?=base_url().'assets/uploads/'.$row->payment_logo?>" width="90%" alt=""></td>
+                        <th><?=$row->payment_number;?></th>
+                    </tr>
+                    <tr>
+                        <td>[ <?=$row->payment_account_name;?> ]</td>
+                    </tr>
+                    <tr><td colspan="2">
+                        <hr style="border-top: 1px dashed #8c8b8b;"></td></tr>
+                <?php }?>
+                </table>
               </ul>
             </div>
           </div>
@@ -177,6 +213,7 @@ function path_members(){
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> 
 <script src="<?=path_members()?>/plugins/jelect/jquery.jelect.js"></script> 
 <script src="<?=path_members()?>/plugins/nouislider/jquery.nouislider.all.min.js"></script> 
+<script src="<?=path_members()?>/plugins/flexslider/jquery.flexslider.js"></script> 
 
 <!--Color Switcher--> 
  <script src="<?=path_members()?>/plugins/switcher/js/bootstrap-select.js"></script> 

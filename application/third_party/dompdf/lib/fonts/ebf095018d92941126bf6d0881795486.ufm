@@ -1,0 +1,28 @@
+StartFontMetrics 4.1
+Notice Converted by PHP-font-lib
+Comment https://github.com/PhenX/php-font-lib
+EncodingScheme FontSpecific
+FontName flexslider-icon
+FontSubfamily icon
+UniqueID FontForge 2.0 : flexslider-icon : 18-2-2013
+FullName flexslider-icon
+Version Version 1.0
+PostScriptName flexslider-icon
+Weight Medium
+ItalicAngle 0
+IsFixedPitch false
+UnderlineThickness 0
+UnderlinePosition 0
+FontHeightOffset 89
+Ascender 857
+Descender -143
+FontBBox 0 -143 1000 857
+StartCharMetrics 9
+U 61440 ; WX 0 ; N uniF000 ; G 8
+U 61441 ; WX 643 ; N uniF001 ; G 3
+U 61442 ; WX 643 ; N uniF002 ; G 4
+U 61443 ; WX 786 ; N uniF003 ; G 5
+U 61444 ; WX 857 ; N uniF004 ; G 6
+U 61445 ; WX 929 ; N uniF005 ; G 7
+EndCharMetrics
+EndFontMetrics

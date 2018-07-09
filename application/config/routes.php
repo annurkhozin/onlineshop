@@ -59,10 +59,12 @@ $route['Translate'] = 'TranslateCTRL';
 // Member
 $route['Beranda'] = 'PublicCTRL/beranda';
 $route['Account'] = 'AccountCTRL/dataAkun';
+$route['saveDataMember'] = 'AccountCTRL/saveDataMember';
 
 // Raja Ongkir
 $route['getcity'] = 'RajaOngkirCTRL/getcity';
 $route['getcityfirst'] = 'RajaOngkirCTRL/getcityfirst';
+$route['cost'] = 'RajaOngkirCTRL/cost';
 
 // Auth Member
 $route['Register'] = 'AuthCTRL/registerMember';
@@ -128,6 +130,7 @@ $route['Admin/updateContact'] = 'ContactCTRL/updateContact';
 $route['Admin/user'] = 'UserCTRL/getData';
 $route['Admin/statusUser/:any/:any'] = 'UserCTRL/updateStatus';
 
+<<<<<<< HEAD
 
 //Admin
 $route['Admin/admin'] = 'DataAdminCTRL/getData';
@@ -136,3 +139,12 @@ $route['Admin/tambahAdmin'] = 'CategoryCTRL/tambahAdmin';
  $route['Admin/saveAdmin'] = 'CategoryCTRL/saveAdmin';
  $route['Admin/updateAdmin/:any'] = 'CategoryCTRL/updateAdmin';
  $route['Admin/detailAdmin/:any'] = 'CategoryCTRL/detailAdmin';
+=======
+// shop
+$route['detailProduct/(:any)'] = 'PublicCTRL/detailProduct';
+$route['masukKeranjang/(:any)'] = 'PublicCTRL/tocart';
+$route['deleteKeranjang/(:any)'] = 'PublicCTRL/removecart';
+$route['kosongkanKeranjang'] = 'PublicCTRL/deletecart';
+$route['viewCheckout'] = 'AccountCTRL/viewCheckout';
+
+>>>>>>> 26e51eebb189e044670c3cd7eab3929879f5b459
