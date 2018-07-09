@@ -127,3 +127,12 @@ $route['Admin/updateContact'] = 'ContactCTRL/updateContact';
 // User 
 $route['Admin/user'] = 'UserCTRL/getData';
 $route['Admin/statusUser/:any/:any'] = 'UserCTRL/updateStatus';
+
+
+//Admin
+$route['Admin/admin'] = 'DataAdminCTRL/getData';
+$route['Admin/statusAdmin/:any/:any'] = 'DataAdminCTRL/updateStatus';
+$route['Admin/tambahAdmin'] = 'CategoryCTRL/tambahAdmin';
+ $route['Admin/saveAdmin'] = 'CategoryCTRL/saveAdmin';
+ $route['Admin/updateAdmin/:any'] = 'CategoryCTRL/updateAdmin';
+ $route['Admin/detailAdmin/:any'] = 'CategoryCTRL/detailAdmin';
