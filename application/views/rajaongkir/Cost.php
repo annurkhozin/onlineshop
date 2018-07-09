@@ -27,17 +27,6 @@ if ($err) {
 } else {
   //echo $response;
   $data = json_decode($response, true);
-  //echo json_encode($k['rajaongkir']['results']);
-
-  /*
-  for ($k=0; $k < count($data['rajaongkir']['results']); $k++){
-  
-
-    echo "<li='".$data['rajaongkir']['results'][$k]['code']."'>".$data['rajaongkir']['results'][$k]['service']."</li>";
-  	//echo $data['rajaongkir']['results'][$k]['code'];
-  }
-  */
-  //echo $data['rajaongkir']['results']['costs']['service'];
 }
 ?>
 
@@ -49,6 +38,7 @@ if ($err) {
 	 <div title="<?php echo strtoupper($data['rajaongkir']['results'][$k]['name']);?>" style="padding:10px">
 		 <table class="table table-striped">
 			 <tr>
+				 <th>#</th>
 				 <th>No.</th>
 				 <th>Jenis Layanan</th>
 				 <th>ETD</th>
@@ -58,6 +48,7 @@ if ($err) {
 			 for ($l=0; $l < count($data['rajaongkir']['results'][$k]['costs']); $l++) {			 
 			 ?>
 			 <tr>
+				 <td><input type="radio" onclik="jumlahBayar(<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?>)"></td>
 				 <td><?php echo $l+1;?></td>
 				 <td>
 					 <div style="font:bold 16px Arial"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?></div>

@@ -41,3 +41,78 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="section-area">
+        <div class="isotope-frame wow bounceInRight" data-wow-duration="1s">
+          <ul class="isotope-filter products clearfix">
+            <?php foreach ($allData->result() as $row) { ?>
+              
+              <li class="isotope-item best products__item">
+                <?php $rows_images = explode(",",$row->images_product); 
+						      $kategori = $this->db->where('category_id', $row->category_id)->get('category__')->row_array();
+                ?>
+                <a class="products__foto" href="<?=base_url().'assets/uploads/product/'.$rows_images[0]?>" rel="prettyPhoto">
+                <img src="<?=base_url().'assets/uploads/product/'.$rows_images[0]?>" height="80%" width="80%" alt="<?=$row->product_name;?>"> </a>
+                <h4 class="products__name"><a href="<?=base_url().'detailProduct/'.paramEncrypt($row->product_id);?>"><?=$row->product_name?></a></h4>
+                <div class="products__category"><a href="#"><?=$kategori['category_name']?></a></div>
+                <div class="products__inner clearfix">
+                  <span class="products__price-new"><?=currency($row->price)?></span></span>
+              </div>
+              <footer class="products-btns clearfix">
+                <a href="<?=base_url().'detailProduct/'.paramEncrypt($row->product_id);?>" class="btn btn-default btn-sm btn-block"><i class="icon fa fa-shopping-cart color_danger" aria-hidden="true"></i> Beli</a>
+              </footer>
+              </li>
+            <?php }?>
+            
+          </ul>
+        </div>
+      </div>
+      <!-- end section-area --> 
+    </div>
+    <!-- end col --> 
+  </div>
+  <!-- end row --> 
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="section-area section-default">
+        <div class="subscribe subscribe_mod-a"><i class="subscribe__icon fa fa-shopping-cart"></i>
+          <div class="subscribe__inner"> <span class="subscribe__title">Cek Pesanan Anda</span> <span class="subscribe__description">Silakhan masukan kode transaksi anda</span> </div>
+          <form class="subscribe__form form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Kode Transaksi">
+              <input class="ui-btn ui-btn_default" type="submit" value="Cek Pesanan">
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- end section-area --> 
+    </div>
+    <!-- end col --> 
+  </div>
+  <!-- end row --> 
+</div>
+
+<div class="section-area section-social-links bounceInRight" data-wow-duration="1s" data-wow-delay="1s">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12"> <span class="social-links__title">Temukan kami juga</span>
+        <ul class="social-links list-unstyled">
+          <li class="social-links__item"><a class="social-links__link" href="javascript:void(0);"><i class="icon fa fa-twitter"></i></a> </li>
+          <li class="social-links__item"><a class="social-links__link" href="javascript:void(0);"><i class="icon fa fa-facebook"></i></a> </li>
+          <li class="social-links__item"><a class="social-links__link" href="javascript:void(0);"><i class="icon fa fa-google-plus"></i></a> </li>
+          <li class="social-links__item"><a class="social-links__link" href="javascript:void(0);"><i class="icon fa fa-instagram"></i></a> </li>
+          <li class="social-links__item"><a class="social-links__link" href="javascript:void(0);"><i class="icon fa fa-pinterest-p"></i></a> </li>
+          <li class="social-links__item"><a class="social-links__link" href="javascript:void(0);"><i class="icon fa fa-rss"></i></a> </li>
+          <li class="social-links__item"><a class="social-links__link" href="javascript:void(0);"><i class="icon fa fa-youtube-play"></i></a> </li>
+        </ul>
+      </div>
+      <!-- end col --> 
+    </div>
+    <!-- end row --> 
+  </div>
+  <!-- end container --> 
+</div>

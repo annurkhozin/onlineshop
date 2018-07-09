@@ -59,10 +59,12 @@ $route['Translate'] = 'TranslateCTRL';
 // Member
 $route['Beranda'] = 'PublicCTRL/beranda';
 $route['Account'] = 'AccountCTRL/dataAkun';
+$route['saveDataMember'] = 'AccountCTRL/saveDataMember';
 
 // Raja Ongkir
 $route['getcity'] = 'RajaOngkirCTRL/getcity';
 $route['getcityfirst'] = 'RajaOngkirCTRL/getcityfirst';
+$route['cost'] = 'RajaOngkirCTRL/cost';
 
 // Auth Member
 $route['Register'] = 'AuthCTRL/registerMember';
@@ -127,3 +129,11 @@ $route['Admin/updateContact'] = 'ContactCTRL/updateContact';
 // User 
 $route['Admin/user'] = 'UserCTRL/getData';
 $route['Admin/statusUser/:any/:any'] = 'UserCTRL/updateStatus';
+
+// shop
+$route['detailProduct/(:any)'] = 'PublicCTRL/detailProduct';
+$route['masukKeranjang/(:any)'] = 'PublicCTRL/tocart';
+$route['deleteKeranjang/(:any)'] = 'PublicCTRL/removecart';
+$route['kosongkanKeranjang'] = 'PublicCTRL/deletecart';
+$route['viewCheckout'] = 'AccountCTRL/viewCheckout';
+

@@ -75,4 +75,20 @@ class RajaOngkirCTRL extends users {
 		  }
 		}
 	}
+	public function cost()
+	{
+		$origin = $this->input->get('origin');
+		$destination = $this->input->get('destination');
+		$berat = $this->input->get('berat');
+		$courier = $this->input->get('courier');
+
+		$data = array('origin' => $origin,
+						'destination' => $destination, 
+						'berat' => $berat, 
+						'courier' => $courier 
+
+		);
+		
+		$this->load->view('rajaongkir/Cost', $data);
+	}
 }
