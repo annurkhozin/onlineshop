@@ -57,13 +57,13 @@
               <div class="col-md-12">
                 <div class="col-md-6">
                   <select class="form-control" required name="province_id" id="propinsi_asal">
-                      <option value="" selected="" disabled="">Pilih Provinsi</option>
+                      <option value="<?=$akun['province_id']?>" selected="" disabled="">Pilih Provinsi</option>
                       <?php $this->load->view('rajaongkir/getProvince'); ?>
                     </select>
                 </div>
                 <div class="col-md-6">
                   <select class="form-control" required name="city_id" id="origin">
-                    <option value="" selected="" disabled="">Pilih Kota</option>
+                    <option value="<?=$akun['city_id']?>" selected="" disabled="">Pilih Kota</option>
                   </select>
                 </div>
               </div>

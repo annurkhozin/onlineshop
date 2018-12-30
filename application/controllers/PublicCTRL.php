@@ -14,6 +14,18 @@ class PublicCTRL extends Users {
 		$this->load->view('Styler/Template', $data);
 	}
 
+	function category() {
+		$data	= $this->public_data;
+		$data['title']='Beranda';
+		$data['content']='Beranda/beranda.php';
+		$where = array(
+			'category_id' => paramDecrypt($this->input->get('v')),
+			'is_active' => 1,
+		);
+		$data['allData'] = $this->M__db->get_cek_order('product__','*',$where,'product_id','DESC');
+		$this->load->view('Styler/Template', $data);
+	}
+
 	function detailProduct() {
 		$data	= $this->public_data;
 		$data['title']='Detail Produk';
@@ -24,7 +36,21 @@ class PublicCTRL extends Users {
 		$data['row'] = $this->M__db->cek('product__','*',$where)->row_array();
 		$this->load->view('Styler/Template', $data);
 	}
-	
+
+	function transactioncheck(){
+		redirect(base_url().'transactionCode?v='.paramEncrypt($this->input->post('code')));
+	}
+	function transactionview() { 
+		$data	= $this->public_data;
+		$data['title']='Transaksi';
+		$where = array(
+			'transaction_code' => $this->input->get('v'),
+			);
+		$data['trans'] = $this->M__db->cek('transaction__','*',$where)->row_array();
+		$data['content']='Member/viewTransaction.php';
+		$this->load->view('Styler/Template', $data);
+	}
+
 	public function tocart() {
 		// $this->cart->destroy();
 		$jumlah = $this->input->post('jumlah');

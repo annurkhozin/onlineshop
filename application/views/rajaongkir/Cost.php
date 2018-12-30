@@ -48,7 +48,7 @@ if ($err) {
 			 for ($l=0; $l < count($data['rajaongkir']['results'][$k]['costs']); $l++) {			 
 			 ?>
 			 <tr>
-				 <td><input type="radio" name='jumlahBayar' onclick="jumlahBayar(<?=$data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']?>)"></td>
+				 <td><input type="radio" name='jumlahBayar' onclick="jumlahBayar(<?=$data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']?>,'<?=$data['rajaongkir']['results'][$k]['costs'][$l]['service']?>')"></td>
 				 <td><?php echo $l+1;?></td>
 				 <td>
 					 <div style="font:bold 16px Arial"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?></div>
@@ -62,22 +62,32 @@ if ($err) {
 			 ?>
 		 </table>
 		 <script>
-                  function jumlahBayar(cost){
-                    var price = '<?php echo $this->cart->total()?>';
-                    var total = parseInt(price) + parseInt(cost);
-                    $('.totalBayar').val(total);
-										var DecimalSeparator = Number("1.2").toLocaleString().substr(1,1);
+				function jumlahBayar(cost,service){
+					var price = '<?php echo $this->cart->total()?>';
+					var total = parseInt(price) + parseInt(cost);
+					$('.payment').val(total);
+					$('.service').val(service);
+					var DecimalSeparator = Number("1.2").toLocaleString().substr(1,1);
 
-										var AmountWithCommas = total.toLocaleString();
-										var arParts = String(AmountWithCommas).split(DecimalSeparator);
-										var intPart = arParts[0];
-										var decPart = (arParts.length > 1 ? arParts[1] : '');
-										decPart = (decPart + '00').substr(0,2);
+					var AmountWithCommas = total.toLocaleString();
+					var arParts = String(AmountWithCommas).split(DecimalSeparator);
+					var intPart = arParts[0];
+					var decPart = (arParts.length > 1 ? arParts[1] : '');
+					decPart = (decPart + '00').substr(0,2);
+					var	bayar = 'Rp ' + intPart + DecimalSeparator + decPart;
+					$('.totalBayarText').text(bayar);
 
-										var	bayar = 'Rp ' + intPart + DecimalSeparator + decPart;
-										$('.totalBayarText').text(bayar);
-                  }
-                </script>
+					var AmountWithCommas2 = cost.toLocaleString();
+					var arParts2 = String(AmountWithCommas2).split(DecimalSeparator);
+					var intPart2 = arParts2[0];
+					var decPart2 = (arParts2.length > 1 ? arParts2[1] : '');
+					decPart2 = (decPart2 + '00').substr(0,2);
+					var	biayakirim = 'Rp ' + intPart2 + DecimalSeparator + decPart2;
+					$('.cost').text(biayakirim);
+					$('.cost').val(cost);
+					
+				}
+			</script>
 	 </div>
  <?php
  }

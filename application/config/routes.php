@@ -130,8 +130,6 @@ $route['Admin/updateContact'] = 'ContactCTRL/updateContact';
 $route['Admin/user'] = 'UserCTRL/getData';
 $route['Admin/statusUser/:any/:any'] = 'UserCTRL/updateStatus';
 
-<<<<<<< HEAD
-
 //Admin
 $route['Admin/admin'] = 'DataAdminCTRL/getData';
 $route['Admin/statusAdmin/:any/:any'] = 'DataAdminCTRL/updateStatus';
@@ -139,12 +137,15 @@ $route['Admin/tambahAdmin'] = 'CategoryCTRL/tambahAdmin';
  $route['Admin/saveAdmin'] = 'CategoryCTRL/saveAdmin';
  $route['Admin/updateAdmin/:any'] = 'CategoryCTRL/updateAdmin';
  $route['Admin/detailAdmin/:any'] = 'CategoryCTRL/detailAdmin';
-=======
+
 // shop
 $route['detailProduct/(:any)'] = 'PublicCTRL/detailProduct';
 $route['masukKeranjang/(:any)'] = 'PublicCTRL/tocart';
 $route['deleteKeranjang/(:any)'] = 'PublicCTRL/removecart';
 $route['kosongkanKeranjang'] = 'PublicCTRL/deletecart';
 $route['viewCheckout'] = 'AccountCTRL/viewCheckout';
+$route['prosesPesan'] = 'AccountCTRL/prosesPesan';
+$route['transactionCheck'] = 'PublicCTRL/transactioncheck';
+$route['transactionCode'] = 'PublicCTRL/transactionview';
+$route['Category'] = 'PublicCTRL/category';
 
->>>>>>> 26e51eebb189e044670c3cd7eab3929879f5b459

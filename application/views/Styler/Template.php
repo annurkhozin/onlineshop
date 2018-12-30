@@ -189,8 +189,11 @@ function path_members(){
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
-              
-              <div class="copyright">Copyright &copy; <?=date('Y')?> <a class="color_primary" href="javascript:void(0);"><?=$info['name_app']?> </a><span class="br">All Rights Reserved.</span></div>
+              <div class="copyright text-center">
+                <p onmouseover="tampil()">&copy; <a href="<?=base_url()?>"><strong><?=$info['name_app']?></strong></a> <?=date('Y')?>. All Rights Reserved</p>
+                <p style="display:none;"  id="log_admin"><a href="<?=base_url().'LogiN' ?>">Login Admin</a> </p>
+
+              </div>
             </div>
           </div>
           <!-- end row --> 
@@ -201,7 +204,11 @@ function path_members(){
     </footer>
   </div>
 </div>
-
+<script>
+        function tampil(){
+            document.getElementById("log_admin").style.display='block';
+        }
+    </script>
 <!-- SCRIPTS --> 
 <script src="<?=path_members()?>/js/jquery-migrate-1.2.1.js"></script>
 <script src="<?=path_members()?>/plugins/bootstrap/js/bootstrap.min.js"></script>

@@ -19,3 +19,17 @@ function select($i,$j){
 function currency($number) {
 	return 'Rp '.number_format($number,2,',','.');
 }
+
+function randcetak($type,$panjang){
+	if($type=='angka'){
+		$karakter = '1234567890';
+	}else{
+		$karakter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	}
+	$string = '';
+	for ($i = 0; $i < $panjang; $i++) {
+		$pos = rand(0, strlen($karakter)-1);
+	  $string .= $karakter{$pos};
+	}
+	return $string;
+}
